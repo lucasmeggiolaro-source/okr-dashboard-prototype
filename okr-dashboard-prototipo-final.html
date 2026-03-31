@@ -3,44 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OKR & KPI Dashboard - Certtus 5.0</title>
+    <title>OKR & KPI Dashboard - Certtus</title>
     <style>
-        /* CERTTUS DESIGN SYSTEM */
-        :root {
-            --primary-600: #2563eb;
-            --primary-500: #3b82f6;
-            --primary-400: #60a5fa;
-            --primary-100: #dbeafe;
-
-            --success-600: #059669;
-            --success-500: #10b981;
-            --success-100: #d1fae5;
-
-            --warning-600: #d97706;
-            --warning-500: #f59e0b;
-            --warning-100: #fef3c7;
-
-            --danger-600: #dc2626;
-            --danger-500: #ef4444;
-            --danger-100: #fee2e2;
-
-            --gray-900: #111827;
-            --gray-800: #1f2937;
-            --gray-700: #374151;
-            --gray-600: #4b5563;
-            --gray-500: #6b7280;
-            --gray-400: #9ca3af;
-            --gray-300: #d1d5db;
-            --gray-200: #e5e7eb;
-            --gray-100: #f3f4f6;
-            --gray-50: #f9fafb;
-
-            --white: #ffffff;
-            --black: #000000;
-
-            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -48,16 +12,15 @@
         }
 
         body {
-            font-family: var(--font-family);
-            background: var(--gray-50);
-            color: var(--gray-800);
-            line-height: 1.5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f9fafb;
+            color: #1f2937;
         }
 
         /* HEADER */
         .header {
-            background: var(--white);
-            border-bottom: 1px solid var(--gray-200);
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
             padding: 16px 24px;
             display: flex;
             justify-content: space-between;
@@ -65,51 +28,44 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 20px;
-            color: var(--primary-600);
-            letter-spacing: -0.5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .header-left {
             display: flex;
             gap: 24px;
             align-items: center;
-            flex: 1;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 18px;
+            color: #3b82f6;
         }
 
         .nav-tabs {
             display: flex;
             gap: 8px;
-            flex-wrap: wrap;
         }
 
         .nav-tab {
             padding: 8px 16px;
-            background: var(--gray-100);
-            border: 1px solid var(--gray-200);
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            color: var(--gray-700);
+            font-size: 14px;
+            transition: all 0.3s;
         }
 
         .nav-tab.active {
-            background: var(--primary-500);
-            color: var(--white);
-            border-color: var(--primary-600);
-            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
         }
 
         .nav-tab:hover:not(.active) {
-            background: var(--gray-200);
-            border-color: var(--gray-300);
+            background: #e5e7eb;
         }
 
         .header-right {
@@ -120,47 +76,27 @@
 
         .periodo-selector {
             padding: 8px 12px;
-            border: 1px solid var(--gray-300);
+            border: 1px solid #e5e7eb;
             border-radius: 6px;
-            background: var(--white);
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--gray-700);
+            background: white;
+            font-size: 14px;
             cursor: pointer;
-            transition: all 0.2s;
         }
 
-        .periodo-selector:hover {
-            border-color: var(--primary-500);
-            color: var(--primary-600);
-        }
-
-        /* CONTAINER */
+        /* MAIN CONTAINER */
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 32px 24px;
         }
 
-        /* SCREEN */
+        /* SCREEN - Visibility */
         .screen {
             display: none;
-            animation: fadeIn 0.3s ease-out;
         }
 
         .screen.active {
             display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         /* SECTION */
@@ -170,12 +106,10 @@
 
         .section-title {
             font-size: 20px;
-            font-weight: 700;
+            font-weight: 600;
             margin-bottom: 20px;
             padding-bottom: 12px;
-            border-bottom: 2px solid var(--gray-200);
-            color: var(--gray-900);
-            letter-spacing: -0.3px;
+            border-bottom: 2px solid #e5e7eb;
         }
 
         /* GRID */
@@ -186,7 +120,7 @@
         }
 
         .grid-cols-3 {
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
 
         .grid-cols-5 {
@@ -198,36 +132,34 @@
         }
 
         .grid-cols-2 {
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         }
 
-        /* CARD */
+        /* CARD - Base */
         .card {
-            background: var(--white);
-            border: 1px solid var(--gray-200);
+            background: white;
+            border: 1px solid #e5e7eb;
             border-radius: 8px;
             padding: 20px;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
             cursor: pointer;
         }
 
         .card:hover {
-            border-color: var(--primary-500);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.12);
-            transform: translateY(-2px);
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
         }
 
         .card-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: start;
             margin-bottom: 12px;
         }
 
         .card-title {
             font-size: 16px;
             font-weight: 600;
-            color: var(--gray-900);
             margin-bottom: 8px;
         }
 
@@ -235,50 +167,30 @@
             display: inline-block;
             padding: 4px 8px;
             border-radius: 4px;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .status-on-track {
-            background: var(--success-100);
-            color: var(--success-600);
+            background: #d1fae5;
+            color: #065f46;
         }
 
         .status-at-risk {
-            background: var(--warning-100);
-            color: var(--warning-600);
+            background: #fef3c7;
+            color: #92400e;
         }
 
         .status-not-started {
-            background: var(--gray-100);
-            color: var(--gray-600);
+            background: #f3f4f6;
+            color: #4b5563;
         }
 
         /* PILLAR CARD */
         .pillar-card {
-            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+            background: linear-gradient(135deg, #f3f4f6 0%, #ffffff 100%);
             border-left: 4px solid;
             padding: 24px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pillar-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .pillar-card > * {
-            position: relative;
-            z-index: 1;
         }
 
         .pillar-card.governance {
@@ -304,17 +216,16 @@
         .pillar-icon {
             font-size: 32px;
             margin-bottom: 12px;
-            display: block;
         }
 
         /* KR CARD */
         .kr-card {
-            border-left: 4px solid var(--primary-500);
+            border-left: 4px solid #3b82f6;
         }
 
         .kr-info {
-            font-size: 12px;
-            color: var(--gray-600);
+            font-size: 13px;
+            color: #6b7280;
             margin: 12px 0;
         }
 
@@ -323,33 +234,32 @@
             justify-content: space-between;
             align-items: center;
             margin: 12px 0;
-            font-size: 12px;
-            color: var(--gray-700);
+            font-size: 13px;
         }
 
         /* PROGRESS BAR */
         .progress-bar {
             width: 100%;
-            height: 6px;
-            background: var(--gray-200);
-            border-radius: 3px;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
             overflow: hidden;
             margin: 12px 0;
         }
 
         .progress-fill {
             height: 100%;
-            background: var(--success-500);
-            border-radius: 3px;
-            transition: width 0.3s ease;
+            background: #10b981;
+            border-radius: 4px;
+            transition: width 0.3s;
         }
 
         .progress-fill.at-risk {
-            background: var(--warning-500);
+            background: #f59e0b;
         }
 
         .progress-fill.danger {
-            background: var(--danger-500);
+            background: #ef4444;
         }
 
         /* BUTTON */
@@ -358,40 +268,36 @@
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 13px;
-            font-weight: 600;
-            transition: all 0.2s ease;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
             display: inline-flex;
             gap: 6px;
             align-items: center;
-            letter-spacing: -0.2px;
         }
 
         .btn-primary {
-            background: var(--primary-500);
-            color: var(--white);
-            box-shadow: 0 2px 4px rgba(59, 130, 246, 0.15);
+            background: #3b82f6;
+            color: white;
         }
 
         .btn-primary:hover {
-            background: var(--primary-600);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+            background: #2563eb;
         }
 
         .btn-secondary {
-            background: var(--gray-100);
-            color: var(--gray-700);
-            border: 1px solid var(--gray-300);
+            background: #f3f4f6;
+            color: #1f2937;
+            border: 1px solid #e5e7eb;
         }
 
         .btn-secondary:hover {
-            background: var(--gray-200);
-            border-color: var(--gray-400);
+            background: #e5e7eb;
         }
 
         .btn-small {
             padding: 4px 8px;
-            font-size: 11px;
+            font-size: 12px;
         }
 
         .btn-group {
@@ -405,81 +311,61 @@
         .badge {
             display: inline-block;
             padding: 4px 8px;
-            background: var(--gray-100);
+            background: #e5e7eb;
             border-radius: 4px;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--gray-700);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-size: 12px;
+            font-weight: 500;
         }
 
         .badge-green {
-            background: var(--success-100);
-            color: var(--success-600);
+            background: #d1fae5;
+            color: #065f46;
         }
 
         .badge-yellow {
-            background: var(--warning-100);
-            color: var(--warning-600);
+            background: #fef3c7;
+            color: #92400e;
         }
 
         .badge-red {
-            background: var(--danger-100);
-            color: var(--danger-600);
+            background: #fee2e2;
+            color: #991b1b;
         }
 
-        /* KPI CARD */
+        /* KPI GRID CARD */
         .kpi-card {
-            border: 1px solid var(--gray-200);
-            background: var(--white);
+            border: 1px solid #e5e7eb;
+            background: white;
             padding: 16px;
             border-radius: 8px;
             text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .kpi-card:hover {
-            border-color: var(--primary-500);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);
-        }
-
-        .kpi-label {
-            font-size: 11px;
-            color: var(--gray-600);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
         }
 
         .kpi-value {
             font-size: 18px;
             font-weight: 700;
-            color: var(--gray-900);
+            color: #1f2937;
             margin: 8px 0;
-            letter-spacing: -0.3px;
         }
 
         .kpi-change {
-            font-size: 11px;
-            font-weight: 600;
+            font-size: 12px;
             margin-top: 4px;
         }
 
         .kpi-change.positive {
-            color: var(--success-600);
+            color: #10b981;
         }
 
         .kpi-change.negative {
-            color: var(--danger-600);
+            color: #ef4444;
         }
 
-        /* TABS */
+        /* TAB SWITCHER */
         .tabs {
             display: flex;
             gap: 0;
-            border-bottom: 2px solid var(--gray-200);
+            border-bottom: 2px solid #e5e7eb;
             margin-bottom: 24px;
         }
 
@@ -488,20 +374,20 @@
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--gray-600);
+            font-size: 14px;
+            font-weight: 500;
+            color: #6b7280;
             border-bottom: 3px solid transparent;
             margin-bottom: -2px;
-            transition: all 0.2s ease;
-            letter-spacing: -0.2px;
+            transition: all 0.3s;
         }
 
         .tab.active {
-            color: var(--primary-600);
-            border-bottom-color: var(--primary-500);
+            color: #3b82f6;
+            border-bottom-color: #3b82f6;
         }
 
+        /* TAB CONTENT */
         .tab-content {
             display: none;
         }
@@ -517,11 +403,9 @@
 
         .form-group label {
             display: block;
-            font-size: 13px;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 500;
             margin-bottom: 8px;
-            color: var(--gray-700);
-            letter-spacing: -0.2px;
         }
 
         .form-group input,
@@ -529,19 +413,10 @@
         .form-group textarea {
             width: 100%;
             padding: 10px 12px;
-            border: 1px solid var(--gray-300);
+            border: 1px solid #e5e7eb;
             border-radius: 6px;
-            font-size: 13px;
+            font-size: 14px;
             font-family: inherit;
-            transition: all 0.2s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-500);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
 
         .form-group textarea {
@@ -568,30 +443,18 @@
         }
 
         .modal-content {
-            background: var(--white);
+            background: white;
             border-radius: 8px;
             max-width: 600px;
             width: 90%;
             max-height: 80vh;
             overflow-y: auto;
             box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
-            animation: slideUp 0.3s ease-out;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .modal-header {
             padding: 20px;
-            border-bottom: 1px solid var(--gray-200);
+            border-bottom: 1px solid #e5e7eb;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -599,8 +462,7 @@
 
         .modal-title {
             font-size: 18px;
-            font-weight: 700;
-            color: var(--gray-900);
+            font-weight: 600;
         }
 
         .modal-close {
@@ -608,12 +470,7 @@
             border: none;
             font-size: 24px;
             cursor: pointer;
-            color: var(--gray-500);
-            transition: color 0.2s;
-        }
-
-        .modal-close:hover {
-            color: var(--gray-700);
+            color: #6b7280;
         }
 
         .modal-body {
@@ -622,7 +479,7 @@
 
         .modal-footer {
             padding: 20px;
-            border-top: 1px solid var(--gray-200);
+            border-top: 1px solid #e5e7eb;
             display: flex;
             gap: 12px;
             justify-content: flex-end;
@@ -636,65 +493,46 @@
         }
 
         th {
-            background: var(--gray-100);
+            background: #f3f4f6;
             padding: 12px;
             text-align: left;
-            font-size: 11px;
-            font-weight: 700;
-            border-bottom: 2px solid var(--gray-200);
-            color: var(--gray-700);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-size: 13px;
+            font-weight: 600;
+            border-bottom: 2px solid #e5e7eb;
         }
 
         td {
             padding: 12px;
-            border-bottom: 1px solid var(--gray-200);
+            border-bottom: 1px solid #e5e7eb;
             font-size: 13px;
-            color: var(--gray-700);
         }
 
         tr:hover {
-            background: var(--gray-50);
+            background: #f9fafb;
         }
 
         /* CHART PLACEHOLDER */
         .chart-placeholder {
-            background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
             border-radius: 8px;
             padding: 40px;
             text-align: center;
-            color: var(--gray-500);
+            color: #6b7280;
             margin-top: 16px;
-            font-size: 14px;
-            font-weight: 500;
         }
 
         /* CRITICAL ALERTS */
         .critical-item {
-            background: var(--danger-100);
-            border-left: 4px solid var(--danger-500);
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
             padding: 16px;
             margin-bottom: 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s;
-            color: var(--danger-700);
-        }
-
-        .critical-item:hover {
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
-            transform: translateY(-2px);
+            border-radius: 4px;
         }
 
         .critical-item.warning {
-            background: var(--warning-100);
-            border-left-color: var(--warning-500);
-            color: var(--warning-700);
-        }
-
-        .critical-item.warning:hover {
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+            background: #fffbeb;
+            border-left-color: #f59e0b;
         }
 
         /* STAT ROW */
@@ -702,8 +540,8 @@
             display: flex;
             justify-content: space-between;
             padding: 12px 0;
-            border-bottom: 1px solid var(--gray-200);
-            font-size: 13px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 14px;
         }
 
         .stat-row:last-child {
@@ -711,13 +549,12 @@
         }
 
         .stat-label {
-            color: var(--gray-600);
-            font-weight: 500;
+            color: #6b7280;
         }
 
         .stat-value {
             font-weight: 600;
-            color: var(--gray-900);
+            color: #1f2937;
         }
 
         /* RESPONSIVE */
@@ -750,6 +587,22 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .screen.active {
+            animation: fadeIn 0.3s ease-out;
+        }
     </style>
 </head>
 <body>
@@ -760,7 +613,7 @@
             <div class="nav-tabs" id="navTabs"></div>
         </div>
         <div class="header-right">
-            <div class="periodo-selector">📅 Jan - Dez 2026</div>
+            <div class="periodo-selector">Jan - Dez 2026</div>
         </div>
     </div>
 
@@ -774,22 +627,22 @@
                     <div class="card pillar-card governance" onclick="navigateTo(2)">
                         <div class="pillar-icon">🏛️</div>
                         <div class="card-title">Governança</div>
-                        <div style="font-size: 12px; color: var(--gray-600); margin: 8px 0;">2/3 KRs OK</div>
-                        <div class="card-status status-on-track">✅ On Track</div>
+                        <div style="font-size: 13px; color: #6b7280;">2/3 KRs OK</div>
+                        <div class="card-status status-on-track" style="margin-top: 8px;">✅ On Track</div>
                         <div class="btn btn-secondary btn-small" style="margin-top: 12px;">Expandir →</div>
                     </div>
                     <div class="card pillar-card organization" onclick="navigateTo(2)">
                         <div class="pillar-icon">📋</div>
                         <div class="card-title">Organização</div>
-                        <div style="font-size: 12px; color: var(--gray-600); margin: 8px 0;">1/3 KRs OK</div>
-                        <div class="card-status status-at-risk">⚠️ At Risk</div>
+                        <div style="font-size: 13px; color: #6b7280;">1/3 KRs OK</div>
+                        <div class="card-status status-at-risk" style="margin-top: 8px;">⚠️ At Risk</div>
                         <div class="btn btn-secondary btn-small" style="margin-top: 12px;">Expandir →</div>
                     </div>
                     <div class="card pillar-card productivity" onclick="navigateTo(2)">
                         <div class="pillar-icon">⚡</div>
                         <div class="card-title">Produtividade</div>
-                        <div style="font-size: 12px; color: var(--gray-600); margin: 8px 0;">3/3 KRs OK</div>
-                        <div class="card-status status-on-track">✅ On Track</div>
+                        <div style="font-size: 13px; color: #6b7280;">3/3 KRs OK</div>
+                        <div class="card-status status-on-track" style="margin-top: 8px;">✅ On Track</div>
                         <div class="btn btn-secondary btn-small" style="margin-top: 12px;">Expandir →</div>
                     </div>
                 </div>
@@ -799,67 +652,68 @@
                 <div class="section-title">🏢 Status por Setor</div>
                 <div class="grid grid-cols-5">
                     <div class="card" onclick="navigateTo(2)">
-                        <div style="font-size: 28px; margin-bottom: 12px;">🔧</div>
+                        <div style="font-size: 24px; margin-bottom: 8px;">🔧</div>
                         <div class="card-title">Serviços</div>
-                        <div class="badge badge-green" style="margin: 8px 0; display: inline-block;">✅ 3/4</div>
-                        <div style="font-size: 11px; color: var(--gray-600); margin-top: 8px;">12 KPIs</div>
-                        <div class="btn btn-secondary btn-small" style="margin-top: 12px; width: 100%;">Ver KPIs</div>
+                        <div class="badge badge-green" style="margin: 8px 0;">✅ 3/4 OK</div>
+                        <div style="font-size: 12px; color: #6b7280; margin-top: 8px;">12 KPIs</div>
+                        <div class="btn btn-secondary btn-small" style="margin-top: 12px; width: 100%;">Ver KPIs →</div>
                     </div>
                     <div class="card" onclick="navigateTo(2)">
-                        <div style="font-size: 28px; margin-bottom: 12px;">🛍️</div>
+                        <div style="font-size: 24px; margin-bottom: 8px;">🛍️</div>
                         <div class="card-title">Compras</div>
-                        <div class="badge badge-green" style="margin: 8px 0; display: inline-block;">✅ 2/2</div>
-                        <div style="font-size: 11px; color: var(--gray-600); margin-top: 8px;">8 KPIs</div>
-                        <div class="btn btn-secondary btn-small" style="margin-top: 12px; width: 100%;">Ver KPIs</div>
+                        <div class="badge badge-green" style="margin: 8px 0;">✅ 2/2 OK</div>
+                        <div style="font-size: 12px; color: #6b7280; margin-top: 8px;">8 KPIs</div>
+                        <div class="btn btn-secondary btn-small" style="margin-top: 12px; width: 100%;">Ver KPIs →</div>
                     </div>
                     <div class="card" onclick="navigateTo(2)">
-                        <div style="font-size: 28px; margin-bottom: 12px;">📦</div>
+                        <div style="font-size: 24px; margin-bottom: 8px;">📦</div>
                         <div class="card-title">Estoque</div>
-                        <div class="badge badge-green" style="margin: 8px 0; display: inline-block;">✅ 4/4</div>
-                        <div style="font-size: 11px; color: var(--gray-600); margin-top: 8px;">8 KPIs</div>
-                        <div class="btn btn-secondary btn-small" style="margin-top: 12px; width: 100%;">Ver KPIs</div>
+                        <div class="badge badge-green" style="margin: 8px 0;">✅ 4/4 OK</div>
+                        <div style="font-size: 12px; color: #6b7280; margin-top: 8px;">8 KPIs</div>
+                        <div class="btn btn-secondary btn-small" style="margin-top: 12px; width: 100%;">Ver KPIs →</div>
                     </div>
                     <div class="card" onclick="navigateTo(2)">
-                        <div style="font-size: 28px; margin-bottom: 12px;">🛒</div>
+                        <div style="font-size: 24px; margin-bottom: 8px;">🛒</div>
                         <div class="card-title">Vendas</div>
-                        <div class="badge badge-yellow" style="margin: 8px 0; display: inline-block;">⚠️ 3/4</div>
-                        <div style="font-size: 11px; color: var(--gray-600); margin-top: 8px;">10 KPIs</div>
-                        <div class="btn btn-secondary btn-small" style="margin-top: 12px; width: 100%;">Ver KPIs</div>
+                        <div class="badge badge-yellow" style="margin: 8px 0;">⚠️ 3/4 OK</div>
+                        <div style="font-size: 12px; color: #6b7280; margin-top: 8px;">10 KPIs</div>
+                        <div class="btn btn-secondary btn-small" style="margin-top: 12px; width: 100%;">Ver KPIs →</div>
                     </div>
                     <div class="card" onclick="navigateTo(2)">
-                        <div style="font-size: 28px; margin-bottom: 12px;">💳</div>
+                        <div style="font-size: 24px; margin-bottom: 8px;">💳</div>
                         <div class="card-title">Financeiro</div>
-                        <div class="badge badge-green" style="margin: 8px 0; display: inline-block;">✅ 3/4</div>
-                        <div style="font-size: 11px; color: var(--gray-600); margin-top: 8px;">10 KPIs</div>
-                        <div class="btn btn-secondary btn-small" style="margin-top: 12px; width: 100%;">Ver KPIs</div>
+                        <div class="badge badge-green" style="margin: 8px 0;">✅ 3/4 OK</div>
+                        <div style="font-size: 12px; color: #6b7280; margin-top: 8px;">10 KPIs</div>
+                        <div class="btn btn-secondary btn-small" style="margin-top: 12px; width: 100%;">Ver KPIs →</div>
                     </div>
                 </div>
             </div>
 
             <div class="section">
                 <div class="section-title">🚨 KRs Críticas (Atenção Imediata)</div>
-                <div class="critical-item warning" onclick="navigateTo(4)" style="cursor: pointer;">
+                <div class="critical-item warning" onclick="navigateTo(4)">
                     <strong>⚠️ [COMPRAS]</strong> Reduzir Custo Aquisição: <strong>-3,2%</strong> (Meta: -5%)
-                    <div style="font-size: 11px; margin-top: 4px; opacity: 0.8;">64% do objetivo | Status: AT RISK</div>
+                    <div style="font-size: 12px; color: #92400e; margin-top: 4px;">64% do objetivo | Status: AT RISK</div>
                 </div>
-                <div class="critical-item warning" onclick="navigateTo(4)" style="cursor: pointer;">
+                <div class="critical-item warning" onclick="navigateTo(4)">
                     <strong>⚠️ [ESTOQUE]</strong> Reduzir Obsolescência: <strong>12,3%</strong> (Meta: &lt;8%)
-                    <div style="font-size: 11px; margin-top: 4px; opacity: 0.8;">154% acima | Status: AT RISK</div>
+                    <div style="font-size: 12px; color: #92400e; margin-top: 4px;">154% acima da meta | Status: AT RISK</div>
                 </div>
-                <div class="critical-item" onclick="navigateTo(4)" style="cursor: pointer;">
+                <div class="critical-item" onclick="navigateTo(4)">
                     <strong>❌ [FINANCEIRO]</strong> Aumentar Margem Op.: <strong>31,5%</strong> (Meta: 35%)
-                    <div style="font-size: 11px; margin-top: 4px; opacity: 0.8;">90% do objetivo | Status: NOT STARTED</div>
+                    <div style="font-size: 12px; color: #991b1b; margin-top: 4px;">90% do objetivo | Status: NOT STARTED</div>
                 </div>
             </div>
         </div>
 
-        <!-- SCREEN 2: DASHBOARD SETOR -->
+        <!-- SCREEN 2: DASHBOARD SETOR (Serviços) -->
         <div class="screen" id="screen-2">
             <div class="section">
-                <div class="section-title">🔧 Setor: Serviços (Operacional)</div>
+                <div class="section-title">🔧 Setor: Serviços</div>
+                <p style="color: #6b7280; margin-bottom: 20px;">Gerenciamento visual de KRs e KPIs do setor operacional</p>
 
                 <div style="margin-bottom: 20px;">
-                    <h3 style="font-size: 15px; font-weight: 700; margin-bottom: 16px; color: var(--gray-900);">KRs do Setor</h3>
+                    <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">KRs do Setor</h3>
                     <div class="grid grid-cols-2">
                         <div class="card kr-card">
                             <div class="card-header">
@@ -868,16 +722,16 @@
                             </div>
                             <div class="kr-meta">
                                 <span>Meta: 10/dia</span>
-                                <span style="font-weight: 700;">Atual: 9/dia (90%)</span>
+                                <span style="font-weight: 600;">Atual: 9/dia (90%)</span>
                             </div>
                             <div class="progress-bar">
                                 <div class="progress-fill" style="width: 90%;"></div>
                             </div>
-                            <div class="kr-info">👤 Gerente Ops</div>
+                            <div class="kr-info">Responsável: Gerente Ops</div>
                             <div class="btn-group">
                                 <button class="btn btn-secondary btn-small" onclick="navigateTo(4)">Detalhes</button>
                                 <button class="btn btn-secondary btn-small" onclick="navigateTo(3)">Editar</button>
-                                <button class="btn btn-secondary btn-small" onclick="showModal()">+Co</button>
+                                <button class="btn btn-secondary btn-small" onclick="showModal()">+ Co-resp</button>
                             </div>
                         </div>
 
@@ -888,85 +742,85 @@
                             </div>
                             <div class="kr-meta">
                                 <span>Meta: 30min</span>
-                                <span style="font-weight: 700;">Atual: 45min (150%)</span>
+                                <span style="font-weight: 600;">Atual: 45min (150%)</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill danger" style="width: 100%;"></div>
+                                <div class="progress-fill danger" style="width: 150%;"></div>
                             </div>
-                            <div class="kr-info">👤 Coord. Agendamento</div>
+                            <div class="kr-info">Responsável: Coord. Agendamento</div>
                             <div class="btn-group">
                                 <button class="btn btn-secondary btn-small" onclick="navigateTo(4)">Detalhes</button>
                                 <button class="btn btn-secondary btn-small" onclick="navigateTo(3)">Editar</button>
-                                <button class="btn btn-secondary btn-small" onclick="showModal()">+Co</button>
+                                <button class="btn btn-secondary btn-small" onclick="showModal()">+ Co-resp</button>
                             </div>
                         </div>
 
                         <div class="card kr-card">
                             <div class="card-header">
-                                <div class="card-title">❌ Aumentar Margem</div>
+                                <div class="card-title">❌ Aumentar Margem Serviço</div>
                                 <div class="card-status status-not-started">NOT STARTED</div>
                             </div>
                             <div class="kr-meta">
                                 <span>Meta: 45%</span>
-                                <span style="font-weight: 700;">Atual: 35% (78%)</span>
+                                <span style="font-weight: 600;">Atual: 35% (78%)</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill at-risk" style="width: 78%;"></div>
+                                <div class="progress-fill" style="width: 78%; background: #f59e0b;"></div>
                             </div>
-                            <div class="kr-info">👤 Gerente Financeiro</div>
+                            <div class="kr-info">Responsável: Gerente Financeiro</div>
                             <div class="btn-group">
                                 <button class="btn btn-secondary btn-small" onclick="navigateTo(4)">Detalhes</button>
                                 <button class="btn btn-secondary btn-small" onclick="navigateTo(3)">Editar</button>
-                                <button class="btn btn-secondary btn-small" onclick="showModal()">+Co</button>
+                                <button class="btn btn-secondary btn-small" onclick="showModal()">+ Co-resp</button>
                             </div>
                         </div>
 
-                        <div class="card" style="background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%); border: 2px dashed var(--gray-300); display: flex; align-items: center; justify-content: center;">
+                        <div class="card" style="background: #f9fafb; border: 2px dashed #e5e7eb; display: flex; align-items: center; justify-content: center;">
                             <button class="btn btn-primary" onclick="navigateTo(3)">+ Criar Nova KR</button>
                         </div>
                     </div>
                 </div>
 
                 <div style="margin-bottom: 20px;">
-                    <h3 style="font-size: 15px; font-weight: 700; margin-bottom: 16px; color: var(--gray-900);">KPIs do Setor</h3>
+                    <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">KPIs do Setor</h3>
                     <div class="grid grid-cols-4">
                         <div class="kpi-card">
-                            <div class="kpi-label">Abertas</div>
+                            <div style="font-size: 12px; color: #6b7280;">Abertas</div>
                             <div class="kpi-value">1.563</div>
                             <div class="kpi-change positive">↑ 2.41%</div>
                         </div>
                         <div class="kpi-card">
-                            <div class="kpi-label">Em Andamento</div>
+                            <div style="font-size: 12px; color: #6b7280;">Em Andamento</div>
                             <div class="kpi-value">241</div>
                             <div class="kpi-change negative">↓ 1.23%</div>
                         </div>
                         <div class="kpi-card">
-                            <div class="kpi-label">Faturadas</div>
+                            <div style="font-size: 12px; color: #6b7280;">Faturadas</div>
                             <div class="kpi-value">1.409</div>
                             <div class="kpi-change positive">↑ 3.45%</div>
                         </div>
                         <div class="kpi-card">
-                            <div class="kpi-label">Canceladas</div>
+                            <div style="font-size: 12px; color: #6b7280;">Canceladas</div>
                             <div class="kpi-value">149</div>
                             <div class="kpi-change positive">↑ 0.82%</div>
                         </div>
                         <div class="kpi-card">
-                            <div class="kpi-label">Taxa Conversão</div>
+                            <div style="font-size: 12px; color: #6b7280;">Taxa Conversão</div>
                             <div class="kpi-value">75.25%</div>
                             <div class="kpi-change positive">↑ 0.82%</div>
                         </div>
                         <div class="kpi-card">
-                            <div class="kpi-label">Taxa Cancelamento</div>
+                            <div style="font-size: 12px; color: #6b7280;">Taxa Cancelamento</div>
                             <div class="kpi-value">7.95%</div>
                             <div class="kpi-change positive">↑ 0.31%</div>
                         </div>
                         <div class="kpi-card">
-                            <div class="kpi-label">Ticket Médio</div>
+                            <div style="font-size: 12px; color: #6b7280;">Ticket Médio</div>
                             <div class="kpi-value">R$ 2.125</div>
                             <div class="kpi-change positive">↑ 0.32%</div>
                         </div>
                         <div class="kpi-card">
-                            <div class="kpi-label">Faturamento</div>
+                            <div style="font-size: 12px; color: #6b7280;">Faturamento</div>
                             <div class="kpi-value">R$ 13.6M</div>
                             <div class="kpi-change positive">↑ 2.54%</div>
                         </div>
@@ -974,19 +828,24 @@
                 </div>
 
                 <div class="chart-placeholder">
-                    📊 Gráfico: Faturamento (últimos 30 dias)
+                    📊 Gráfico de Faturamento (últimos 30 dias) - Placeholder
                 </div>
             </div>
         </div>
 
-        <!-- SCREEN 3: CRIAR KR -->
+        <!-- SCREEN 3: CRIAR/EDITAR KR -->
         <div class="screen" id="screen-3">
             <div class="section" style="max-width: 800px;">
-                <div class="section-title">➕ Criar Nova KR</div>
+                <div class="section-title">➕ Criar Nova KR - Setor Serviços</div>
 
                 <div class="form-group">
                     <label>Nome da KR *</label>
                     <input type="text" placeholder="Ex: Aumentar OS por Técnico" value="Aumentar OS por Técnico">
+                </div>
+
+                <div class="form-group">
+                    <label>Descrição</label>
+                    <textarea placeholder="Descreva o objetivo...">Aumentar produtividade dos técnicos através de melhor agendamento e distribuição de carga de trabalho.</textarea>
                 </div>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
@@ -1012,6 +871,28 @@
                     </div>
                 </div>
 
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div class="form-group">
+                        <label>Tipo de Métrica *</label>
+                        <select>
+                            <option selected>Acompanhamento</option>
+                            <option>Soma</option>
+                            <option>Média</option>
+                            <option>Limite Positivo</option>
+                            <option>Limite Negativo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo de Dado *</label>
+                        <select>
+                            <option selected>Número</option>
+                            <option>Valor (R$)</option>
+                            <option>Percentual (%)</option>
+                            <option>Data</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label>Meta Anual *</label>
                     <input type="number" placeholder="10" value="10">
@@ -1026,6 +907,11 @@
                     </select>
                 </div>
 
+                <div class="form-group">
+                    <label>Baseline Atual *</label>
+                    <input type="number" placeholder="8" value="8">
+                </div>
+
                 <div class="btn-group" style="justify-content: flex-start;">
                     <button class="btn btn-primary" onclick="navigateTo(2)">✅ Salvar KR</button>
                     <button class="btn btn-secondary" onclick="navigateTo(2)">❌ Cancelar</button>
@@ -1033,18 +919,23 @@
             </div>
         </div>
 
-        <!-- SCREEN 4: DETALHES KR -->
+        <!-- SCREEN 4: DETALHES DA KR -->
         <div class="screen" id="screen-4">
             <div class="section" style="max-width: 1000px;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
                     <div>
-                        <div class="section-title" style="margin-bottom: 0;">📊 Detalhes: Aumentar OS/Técnico</div>
+                        <div class="section-title" style="margin-bottom: 0;">📊 Detalhes: Aumentar OS por Técnico</div>
+                        <div style="font-size: 13px; color: #6b7280; margin-top: 8px;">Pilar: 💰 Rentabilidade | Setor: 🔧 Serviços</div>
                     </div>
                     <div style="text-align: right;">
                         <div class="card-status status-on-track" style="margin-bottom: 8px; display: inline-block;">✅ ON TRACK (90%)</div>
+                        <div>
+                            <button class="btn btn-secondary btn-small" onclick="navigateTo(3)">Editar</button>
+                        </div>
                     </div>
                 </div>
 
+                <!-- TABS -->
                 <div class="tabs">
                     <button class="tab active" onclick="switchTab(event, 'tab-overview')">Visão Geral</button>
                     <button class="tab" onclick="switchTab(event, 'tab-timeline')">Timeline</button>
@@ -1052,10 +943,11 @@
                     <button class="tab" onclick="switchTab(event, 'tab-causal')">Causal Chain</button>
                 </div>
 
+                <!-- TAB 1: OVERVIEW -->
                 <div class="tab-content active" id="tab-overview">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
                         <div>
-                            <h4 style="font-size: 13px; font-weight: 700; margin-bottom: 12px; color: var(--gray-900);">Info Básicas</h4>
+                            <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">Informações Básicas</h4>
                             <div class="stat-row">
                                 <span class="stat-label">Nome:</span>
                                 <span class="stat-value">Aumentar OS/Técnico</span>
@@ -1068,10 +960,18 @@
                                 <span class="stat-label">Setor:</span>
                                 <span class="stat-value">🔧 Serviços</span>
                             </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Criada em:</span>
+                                <span class="stat-value">01/01/2026</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Última update:</span>
+                                <span class="stat-value">31/03/2026</span>
+                            </div>
                         </div>
 
                         <div>
-                            <h4 style="font-size: 13px; font-weight: 700; margin-bottom: 12px; color: var(--gray-900);">Status</h4>
+                            <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">Status da KR</h4>
                             <div class="stat-row">
                                 <span class="stat-label">Meta Anual:</span>
                                 <span class="stat-value">10/dia</span>
@@ -1084,24 +984,39 @@
                                 <span class="stat-label">Status:</span>
                                 <span class="badge badge-green">✅ ON TRACK</span>
                             </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Tendência:</span>
+                                <span class="stat-value">↗️ Subindo</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Baseline:</span>
+                                <span class="stat-value">8/dia (+2)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 24px; padding: 16px; background: #f3f4f6; border-radius: 8px;">
+                        <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">Responsáveis</h4>
+                        <div class="stat-row" style="border-bottom: none;">
+                            <span class="stat-label">Principal:</span>
+                            <span class="stat-value">Gerente Ops <button class="btn btn-secondary btn-small" onclick="showModal()">+ Co-resp</button></span>
                         </div>
                     </div>
                 </div>
 
+                <!-- TAB 2: TIMELINE -->
                 <div class="tab-content" id="tab-timeline">
                     <div class="chart-placeholder" style="height: 300px;">
-                        📈 Gráfico Timeline (12 meses)
+                        📈 Gráfico Timeline (12 meses) - Placeholder
                     </div>
-                </div>
-
-                <div class="tab-content" id="tab-values">
                     <table>
                         <thead>
                             <tr>
                                 <th>Mês</th>
                                 <th>Meta</th>
                                 <th>Valor Real</th>
-                                <th>% da Meta</th>
+                                <th>% Meta</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1109,37 +1024,99 @@
                                 <td>Janeiro</td>
                                 <td>0.83</td>
                                 <td>0.80</td>
-                                <td><span class="badge badge-green">96%</span></td>
+                                <td>96%</td>
+                                <td><span class="badge badge-green">✅</span></td>
                             </tr>
                             <tr>
                                 <td>Fevereiro</td>
                                 <td>0.83</td>
                                 <td>0.85</td>
-                                <td><span class="badge badge-green">102%</span></td>
+                                <td>102%</td>
+                                <td><span class="badge badge-green">✅</span></td>
                             </tr>
-                            <tr style="background: var(--warning-100);">
+                            <tr>
+                                <td>Março</td>
+                                <td>0.83</td>
+                                <td>0.75</td>
+                                <td>90%</td>
+                                <td><span class="badge badge-green">✅</span></td>
+                            </tr>
+                            <tr>
                                 <td>Junho</td>
                                 <td>0.83</td>
-                                <td style="font-weight: 700; color: var(--warning-600);">-</td>
-                                <td><span class="badge badge-yellow">Aguardando</span></td>
+                                <td>0.90</td>
+                                <td>108%</td>
+                                <td><span class="badge badge-green">✅</span></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
+                <!-- TAB 3: VALORES -->
+                <div class="tab-content" id="tab-values">
+                    <div style="margin-bottom: 16px;">
+                        <button class="btn btn-primary btn-small">✏️ Modo Edição</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mês</th>
+                                <th>Meta</th>
+                                <th>Valor Real</th>
+                                <th>% da Meta</th>
+                                <th>Preenchido por</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Janeiro</td>
+                                <td>0.83</td>
+                                <td>0.80</td>
+                                <td>96%</td>
+                                <td>Gerente Ops</td>
+                                <td>OK</td>
+                            </tr>
+                            <tr>
+                                <td>Fevereiro</td>
+                                <td>0.83</td>
+                                <td>0.85</td>
+                                <td>102%</td>
+                                <td>Gerente Ops</td>
+                                <td></td>
+                            </tr>
+                            <tr style="background: #fffbeb;">
+                                <td>Junho</td>
+                                <td>0.83</td>
+                                <td style="color: #f59e0b; font-weight: 600;">-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td style="color: #f59e0b;">Aguardando</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- TAB 4: CAUSAL CHAIN -->
                 <div class="tab-content" id="tab-causal">
-                    <div style="background: var(--gray-50); padding: 20px; border-radius: 8px; text-align: center;">
-                        <div style="font-size: 13px; color: var(--gray-700);">
-                            <strong>KR: Aumentar OS/Técnico</strong>
-                            <div style="margin: 12px 0; font-size: 18px;">↓</div>
+                    <div style="background: #f3f4f6; padding: 20px; border-radius: 8px;">
+                        <div style="text-align: center; font-size: 14px; color: #6b7280;">
+                            <strong>KR: Aumentar OS por Técnico</strong>
+                            <div style="margin: 12px 0; font-size: 20px;">↓</div>
                             <strong>INICIATIVAS:</strong>
-                            <div style="margin-top: 12px;">📌 Melhorar Agendamento de Serviços</div>
-                            <div style="margin: 4px 0;">📌 Aumentar Produtividade dos Técnicos</div>
-                            <div style="margin: 12px 0; font-size: 18px;">↓</div>
+                            <div style="margin-top: 12px; text-align: left; display: inline-block;">
+                                <div>📌 Melhorar Agendamento de Serviços</div>
+                                <div>📌 Aumentar Produtividade dos Técnicos</div>
+                                <div>📌 Reduzir Fila de Espera</div>
+                            </div>
+                            <div style="margin: 12px 0; font-size: 20px;">↓</div>
                             <strong>KPIs RELACIONADAS:</strong>
-                            <div style="margin-top: 12px;">📊 Taxa Ocupação (75% → 85%)</div>
-                            <div style="margin: 4px 0;">📊 Ticket Médio (R$2.1K → R$2.5K)</div>
-                            <div style="margin: 12px 0; font-size: 18px;">↓</div>
+                            <div style="margin-top: 12px; text-align: left; display: inline-block;">
+                                <div>📊 Taxa Ocupação (Esperado: 75% → 85%)</div>
+                                <div>📊 Ticket Médio (Esperado: R$2.1K → R$2.5K)</div>
+                                <div>📊 Faturamento/Hora (Esperado: R$138 → R$165)</div>
+                            </div>
+                            <div style="margin: 12px 0; font-size: 20px;">↓</div>
                             <strong>OKR ESTRATÉGICO:</strong>
                             <div style="margin-top: 12px;">💰 Aumentar Margem Bruta (35% → 45%)</div>
                         </div>
@@ -1147,9 +1124,199 @@
                 </div>
             </div>
         </div>
+
+        <!-- SCREEN 5: INDICADORES DE DESEMPENHO -->
+        <div class="screen" id="screen-5">
+            <div class="section">
+                <div class="section-title">📊 Indicadores de Desempenho (KPIs)</div>
+                <p style="color: #6b7280; margin-bottom: 20px;">Cadastro e gerenciamento de KPIs relacionados a KRs, Iniciativas e Atividades-Chave</p>
+
+                <!-- FORM CADASTRO -->
+                <div class="card" style="margin-bottom: 30px; background: #f9fafb; border: 2px dashed #3b82f6;">
+                    <div style="font-weight: 600; font-size: 16px; margin-bottom: 20px;">➕ Cadastrar Novo Indicador</div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-bottom: 20px;">
+                        <!-- Coluna 1: Dados Básicos do KPI -->
+                        <div>
+                            <label style="display: block; font-weight: 500; margin-bottom: 6px; font-size: 14px;">Nome do Indicador *</label>
+                            <input type="text" placeholder="Ex: Taxa de Conversão" style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-weight: 500; margin-bottom: 6px; font-size: 14px;">Código *</label>
+                            <input type="text" placeholder="Ex: KPI-001" style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-weight: 500; margin-bottom: 6px; font-size: 14px;">Unidade de Medida *</label>
+                            <select style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+                                <option>Selecione...</option>
+                                <option>%</option>
+                                <option>R$ (Reais)</option>
+                                <option>Unidades</option>
+                                <option>Dias</option>
+                                <option>Horas</option>
+                                <option>Pontos</option>
+                                <option>Score (0-100)</option>
+                            </select>
+                        </div>
+
+                        <!-- Coluna 2: Relacionamentos - Hierarquia Estratégica -->
+                        <div>
+                            <label style="display: block; font-weight: 500; margin-bottom: 6px; font-size: 14px;">🎯 Objetivo Estratégico</label>
+                            <select onchange="updateInitiatives(this.value)" style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+                                <option>Selecione um objetivo...</option>
+                                <option>Aumentar Rentabilidade</option>
+                                <option>Melhorar Eficiência Operacional</option>
+                                <option>Expandir Market Share</option>
+                                <option>Fortalecer Governança</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-weight: 500; margin-bottom: 6px; font-size: 14px;">📋 Iniciativa *</label>
+                            <select onchange="updateKeyActivities(this.value)" id="selectInitiative" style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+                                <option>Selecione uma iniciativa...</option>
+                                <option>Otimizar Processos de Compra</option>
+                                <option>Implementar CRM</option>
+                                <option>Automação de Estoque</option>
+                                <option>Treinamento de Equipe</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-weight: 500; margin-bottom: 6px; font-size: 14px;">⚡ Atividade-Chave *</label>
+                            <select onchange="updateKRs(this.value)" id="selectKeyActivity" style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+                                <option>Selecione uma atividade-chave...</option>
+                                <option>Revisão de Fornecedores</option>
+                                <option>Integração de Dados</option>
+                                <option>Auditoria de Inventário</option>
+                                <option>Workshop de Capacitação</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-weight: 500; margin-bottom: 6px; font-size: 14px;">🔑 Key Result (KR) *</label>
+                            <select id="selectKR" style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+                                <option>Selecione uma KR...</option>
+                                <option>Reduzir Custo de Aquisição em 5%</option>
+                                <option>Aumentar Margem Operacional em 3%</option>
+                                <option>Reduzir Ciclo de Estoque em 20%</option>
+                                <option>Melhorar Taxa de Satisfação para 90%</option>
+                            </select>
+                        </div>
+
+                        <!-- Coluna 3: Metas e Período -->
+                        <div>
+                            <label style="display: block; font-weight: 500; margin-bottom: 6px; font-size: 14px;">Meta (Target) *</label>
+                            <input type="number" placeholder="Ex: 85" step="0.01" style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-weight: 500; margin-bottom: 6px; font-size: 14px;">Valor Atual</label>
+                            <input type="number" placeholder="Ex: 72" step="0.01" style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-weight: 500; margin-bottom: 6px; font-size: 14px;">Período *</label>
+                            <select style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+                                <option>2026 (12 meses)</option>
+                                <option>Q1 2026</option>
+                                <option>Q2 2026</option>
+                                <option>Q3 2026</option>
+                                <option>Q4 2026</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-weight: 500; margin-bottom: 6px; font-size: 14px;">Responsável *</label>
+                            <select style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+                                <option>Selecione...</option>
+                                <option>João Silva (Compras)</option>
+                                <option>Maria Santos (Estoque)</option>
+                                <option>Pedro Costa (Vendas)</option>
+                                <option>Ana Paula (Financeiro)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Fórmula de Cálculo -->
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-weight: 500; margin-bottom: 6px; font-size: 14px;">Fórmula de Cálculo (opcional)</label>
+                        <textarea placeholder="Ex: (Receita Total - Custos) / Receita Total * 100" style="width: 100%; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; font-family: monospace; min-height: 60px;"></textarea>
+                    </div>
+
+                    <!-- Botões -->
+                    <div style="display: flex; gap: 12px; justify-content: flex-end;">
+                        <button class="btn btn-secondary">Cancelar</button>
+                        <button class="btn btn-primary" onclick="addKPI()">Salvar Indicador</button>
+                    </div>
+                </div>
+
+                <!-- TABELA DE KPIs CADASTRADOS -->
+                <div style="margin-top: 40px;">
+                    <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 16px;">📈 KPIs Cadastrados</h3>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+                            <thead>
+                                <tr style="background: #f3f4f6; border-bottom: 2px solid #e5e7eb;">
+                                    <th style="padding: 12px; text-align: left; font-weight: 600;">Código</th>
+                                    <th style="padding: 12px; text-align: left; font-weight: 600;">Nome do Indicador</th>
+                                    <th style="padding: 12px; text-align: center; font-weight: 600;">Atividade-Chave</th>
+                                    <th style="padding: 12px; text-align: center; font-weight: 600;">KR Relacionada</th>
+                                    <th style="padding: 12px; text-align: center; font-weight: 600;">Meta</th>
+                                    <th style="padding: 12px; text-align: center; font-weight: 600;">Atual</th>
+                                    <th style="padding: 12px; text-align: center; font-weight: 600;">Status</th>
+                                    <th style="padding: 12px; text-align: center; font-weight: 600;">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 12px;"><span style="background: #dbeafe; color: #1e40af; padding: 4px 8px; border-radius: 4px; font-weight: 500;">KPI-001</span></td>
+                                    <td style="padding: 12px;">Taxa de Conversão</td>
+                                    <td style="padding: 12px; text-align: center;">Otimizar Funil</td>
+                                    <td style="padding: 12px; text-align: center;">Aumentar Receita 15%</td>
+                                    <td style="padding: 12px; text-align: center;">85%</td>
+                                    <td style="padding: 12px; text-align: center;">78%</td>
+                                    <td style="padding: 12px; text-align: center;"><span style="background: #fef08a; color: #854d0e; padding: 4px 8px; border-radius: 4px; font-weight: 500;">⚠️ At Risk</span></td>
+                                    <td style="padding: 12px; text-align: center; gap: 6px; display: flex; justify-content: center;">
+                                        <button style="padding: 4px 8px; background: #3b82f6; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px;">✏️ Editar</button>
+                                        <button style="padding: 4px 8px; background: #ef4444; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px;">🗑️ Deletar</button>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 12px;"><span style="background: #dbeafe; color: #1e40af; padding: 4px 8px; border-radius: 4px; font-weight: 500;">KPI-002</span></td>
+                                    <td style="padding: 12px;">Custo de Aquisição</td>
+                                    <td style="padding: 12px; text-align: center;">Reduzir Gastos</td>
+                                    <td style="padding: 12px; text-align: center;">Reduzir Custo 5%</td>
+                                    <td style="padding: 12px; text-align: center;">R$ 250</td>
+                                    <td style="padding: 12px; text-align: center;">R$ 210</td>
+                                    <td style="padding: 12px; text-align: center;"><span style="background: #dcfce7; color: #166534; padding: 4px 8px; border-radius: 4px; font-weight: 500;">✅ On Track</span></td>
+                                    <td style="padding: 12px; text-align: center; gap: 6px; display: flex; justify-content: center;">
+                                        <button style="padding: 4px 8px; background: #3b82f6; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px;">✏️ Editar</button>
+                                        <button style="padding: 4px 8px; background: #ef4444; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px;">🗑️ Deletar</button>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 12px;"><span style="background: #dbeafe; color: #1e40af; padding: 4px 8px; border-radius: 4px; font-weight: 500;">KPI-003</span></td>
+                                    <td style="padding: 12px;">Taxa de Retenção de Estoque</td>
+                                    <td style="padding: 12px; text-align: center;">Auditoria de Inventário</td>
+                                    <td style="padding: 12px; text-align: center;">Reduzir Obsolescência 8%</td>
+                                    <td style="padding: 12px; text-align: center;">92%</td>
+                                    <td style="padding: 12px; text-align: center;">95%</td>
+                                    <td style="padding: 12px; text-align: center;"><span style="background: #dcfce7; color: #166534; padding: 4px 8px; border-radius: 4px; font-weight: 500;">✅ On Track</span></td>
+                                    <td style="padding: 12px; text-align: center; gap: 6px; display: flex; justify-content: center;">
+                                        <button style="padding: 4px 8px; background: #3b82f6; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px;">✏️ Editar</button>
+                                        <button style="padding: 4px 8px; background: #ef4444; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px;">🗑️ Deletar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- MODAL -->
+    <!-- MODAL: GERENCIAR RESPONSÁVEIS -->
     <div class="modal" id="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1163,18 +1330,28 @@
                         <option>Coordenador Agendamento</option>
                         <option>Técnico Lead</option>
                         <option>Gerente Financeiro</option>
+                        <option>Outro usuário...</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label>Permissões</label>
-                    <div>
+                    <div style="margin-top: 8px;">
                         <div style="margin-bottom: 8px;">
                             <input type="checkbox" id="perm1" checked>
-                            <label for="perm1" style="display: inline; margin-left: 4px; font-size: 13px;">Visualizar</label>
+                            <label for="perm1" style="display: inline; margin-left: 4px;">Visualizar</label>
+                        </div>
+                        <div style="margin-bottom: 8px;">
+                            <input type="checkbox" id="perm2" checked>
+                            <label for="perm2" style="display: inline; margin-left: 4px;">Editar Valores</label>
+                        </div>
+                        <div style="margin-bottom: 8px;">
+                            <input type="checkbox" id="perm3">
+                            <label for="perm3" style="display: inline; margin-left: 4px;">Editar Metadados</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="perm2" checked>
-                            <label for="perm2" style="display: inline; margin-left: 4px; font-size: 13px;">Editar Valores</label>
+                            <input type="checkbox" id="perm4">
+                            <label for="perm4" style="display: inline; margin-left: 4px;">Deletar KR</label>
                         </div>
                     </div>
                 </div>
@@ -1187,21 +1364,32 @@
     </div>
 
     <script>
-        const screens = ['screen-1', 'screen-2', 'screen-3', 'screen-4'];
+        // SCREEN NAVIGATION
+        const screens = ['screen-1', 'screen-2', 'screen-3', 'screen-4', 'screen-5'];
         let currentScreen = 1;
 
         function navigateTo(screen) {
-            screens.forEach(s => document.getElementById(s).classList.remove('active'));
+            // Hide all screens
+            screens.forEach(s => {
+                document.getElementById(s).classList.remove('active');
+            });
+
+            // Show target screen
             document.getElementById(`screen-${screen}`).classList.add('active');
             currentScreen = screen;
+
+            // Update nav tabs
             updateNavTabs();
+
+            // Scroll to top
             window.scrollTo(0, 0);
         }
 
         function updateNavTabs() {
             const tabs = document.getElementById('navTabs');
             tabs.innerHTML = '';
-            const tabNames = ['Visão Geral', 'Dashboard', 'Criar KR', 'Detalhes'];
+
+            const tabNames = ['Visão Geral', 'Dashboard', 'Criar KR', 'Detalhes', 'Indicadores'];
             screens.forEach((_, i) => {
                 const btn = document.createElement('button');
                 btn.className = `nav-tab ${i + 1 === currentScreen ? 'active' : ''}`;
@@ -1211,13 +1399,18 @@
             });
         }
 
+        // TAB SWITCHER
         function switchTab(event, tabId) {
+            // Remove active from all tabs
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+            // Add active to clicked tab
             event.target.classList.add('active');
             document.getElementById(tabId).classList.add('active');
         }
 
+        // MODAL
         function showModal() {
             document.getElementById('modal').classList.add('active');
         }
@@ -1226,8 +1419,82 @@
             document.getElementById('modal').classList.remove('active');
         }
 
+        // INDICADORES RELACIONADOS - Hierarchical dropdowns
+        function updateInitiatives(objective) {
+            // Map objectives to initiatives
+            const initiativesMap = {
+                'Aumentar Rentabilidade': ['Otimizar Processos de Compra', 'Expandir Mercados'],
+                'Melhorar Eficiência Operacional': ['Automação de Estoque', 'Implementar CRM'],
+                'Expandir Market Share': ['Treinamento de Equipe', 'Parcerias Estratégicas'],
+                'Fortalecer Governança': ['Compliance 360', 'Certificações ISO']
+            };
+
+            const select = document.getElementById('selectInitiative');
+            select.innerHTML = '<option>Selecione uma iniciativa...</option>';
+
+            if (objective && initiativesMap[objective]) {
+                initiativesMap[objective].forEach(initiative => {
+                    const option = document.createElement('option');
+                    option.value = initiative;
+                    option.textContent = initiative;
+                    select.appendChild(option);
+                });
+            }
+        }
+
+        function updateKeyActivities(initiative) {
+            // Map initiatives to key activities
+            const activitiesMap = {
+                'Otimizar Processos de Compra': ['Revisão de Fornecedores', 'Negociação de Preços'],
+                'Implementar CRM': ['Integração de Dados', 'Capacitação de Usuários'],
+                'Automação de Estoque': ['Auditoria de Inventário', 'Implementação de Sistema'],
+                'Treinamento de Equipe': ['Workshop de Capacitação', 'Desenvolvimento de Habilidades']
+            };
+
+            const select = document.getElementById('selectKeyActivity');
+            select.innerHTML = '<option>Selecione uma atividade-chave...</option>';
+
+            if (initiative && activitiesMap[initiative]) {
+                activitiesMap[initiative].forEach(activity => {
+                    const option = document.createElement('option');
+                    option.value = activity;
+                    option.textContent = activity;
+                    select.appendChild(option);
+                });
+            }
+        }
+
+        function updateKRs(activity) {
+            // Map key activities to KRs
+            const krsMap = {
+                'Revisão de Fornecedores': ['Reduzir Custo de Aquisição em 5%', 'Melhorar Qualidade de Fornecimento'],
+                'Integração de Dados': ['Aumentar Margem Operacional em 3%', 'Reduzir Ciclo de Vendas em 15%'],
+                'Auditoria de Inventário': ['Reduzir Obsolescência em 8%', 'Otimizar Capital de Giro'],
+                'Workshop de Capacitação': ['Melhorar Taxa de Satisfação para 90%', 'Reduzir Turnover em 20%']
+            };
+
+            const select = document.getElementById('selectKR');
+            select.innerHTML = '<option>Selecione uma KR...</option>';
+
+            if (activity && krsMap[activity]) {
+                krsMap[activity].forEach(kr => {
+                    const option = document.createElement('option');
+                    option.value = kr;
+                    option.textContent = kr;
+                    select.appendChild(option);
+                });
+            }
+        }
+
+        function addKPI() {
+            alert('KPI salvo com sucesso! (Protótipo - funcionalidade será conectada ao backend)');
+        }
+
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             updateNavTabs();
+
+            // Close modal on outside click
             document.getElementById('modal').addEventListener('click', function(e) {
                 if (e.target === this) closeModal();
             });
