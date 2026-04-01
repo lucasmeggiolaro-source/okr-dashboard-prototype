@@ -173,17 +173,10 @@
                 <div class="grid grid-cols-5" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));" id="pilares-grid"></div>
             </div>
 
-            <!-- ALERTAS CRÍTICOS -->
+            <!-- ALERTAS CRÍTICOS — ATIVIDADES-CHAVE -->
             <div class="section">
-                <div class="section-title">🚨 Resultados-Chave que Precisam de Atenção</div>
-                <div class="critical-item warning" onclick="drillToLevel2('organization')">
-                    <strong>⚠️ [ORGANIZAÇÃO]</strong> Mapear processos críticos: <strong>45%</strong> (Meta: 100% até Q3)
-                    <div style="font-size: 12px; color: #92400e; margin-top: 4px;">Risco de atraso | 2 iniciativas bloqueadas</div>
-                </div>
-                <div class="critical-item warning" onclick="drillToLevel2('growth')">
-                    <strong>⚠️ [CRESCIMENTO]</strong> Expandir carteira ativa: <strong>+78 clientes</strong> (Meta: +120)
-                    <div style="font-size: 12px; color: #92400e; margin-top: 4px;">65% do objetivo | Velocidade abaixo do esperado</div>
-                </div>
+                <div class="section-title">🚨 Atividades-Chave que Precisam de Atenção</div>
+                <div id="critical-activities"></div>
             </div>
         </div>
 
@@ -421,6 +414,63 @@
     </div>
 
     <script>
+    // ═══════════════════════════════════════════════════════════
+    // RENDER CRITICAL ACTIVITIES
+    // ═══════════════════════════════════════════════════════════
+    function renderCriticalActivities() {
+        const container = document.getElementById('critical-activities');
+        let criticalActivities = [];
+
+        // Coleta todas as atividades-chave em risco ou não iniciadas
+        const pillarKeys = ['governance', 'organization', 'productivity', 'growth', 'profitability'];
+
+        pillarKeys.forEach(pillarKey => {
+            const pillar = DATA[pillarKey];
+            pillar.initiatives.forEach((initiative, initIdx) => {
+                initiative.activities.forEach((activity, actIdx) => {
+                    if (activity.status === 'at-risk' || activity.status === 'not-started') {
+                        criticalActivities.push({
+                            pillarKey,
+                            pillarIcon: pillar.icon,
+                            pillarName: pillar.name,
+                            initiativeName: initiative.name,
+                            activityName: activity.name,
+                            owner: activity.owner,
+                            period: activity.period,
+                            status: activity.status,
+                            kpiCount: activity.kpis.length
+                        });
+                    }
+                });
+            });
+        });
+
+        // Renderiza os alertas
+        if (criticalActivities.length === 0) {
+            container.innerHTML = '<div style="padding: 16px; text-align: center; color: #6b7280;">✅ Nenhuma atividade-chave em risco no momento</div>';
+            return;
+        }
+
+        container.innerHTML = criticalActivities.map(item => {
+            const statusLabel = item.status === 'at-risk' ? '⚠️ Em Risco' : '⏳ Não Iniciada';
+            const statusColor = item.status === 'at-risk' ? '#f59e0b' : '#9ca3af';
+            return `
+                <div class="critical-item warning" onclick="drillToLevel2('${item.pillarKey}')">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div>
+                            <strong>${item.pillarIcon} [${item.pillarName.toUpperCase()}]</strong> ${item.activityName}
+                            <div style="font-size: 12px; color: #6b7280; margin-top: 4px;">
+                                Iniciativa: ${item.initiativeName} | Responsável: ${item.owner} | Período: ${item.period}
+                            </div>
+                            <div style="font-size: 12px; color: #6b7280; margin-top: 2px;">${item.kpiCount} KPIs vinculados</div>
+                        </div>
+                        <span style="background: ${statusColor}20; color: ${statusColor}; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 500; white-space: nowrap; margin-left: 12px;">${statusLabel}</span>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
     // ═══════════════════════════════════════════════════════════
     // RENDER PILLARS DYNAMICALLY
     // ═══════════════════════════════════════════════════════════
@@ -1289,6 +1339,7 @@
     // ═══════════════════════════════════════════════════════════
     document.addEventListener('DOMContentLoaded', function() {
         renderPillars();
+        renderCriticalActivities();
     });
     </script>
 </body>
