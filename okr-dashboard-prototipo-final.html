@@ -151,7 +151,7 @@
     <div class="container">
 
         <!-- ═══════════════════════════════════════════════════════════ -->
-        <!-- NÍVEL 1: VISÃO GERAL - 5 PILARES COM OBJETIVOS E KRs     -->
+        <!-- NÍVEL 1: VISÃO GERAL - 5 PILARES COM OBJETIVOS E Resultados-Chave     -->
         <!-- ═══════════════════════════════════════════════════════════ -->
         <div class="screen active" id="screen-level1">
             <!-- Level indicator -->
@@ -163,19 +163,19 @@
                 <div class="level-dot l3" style="opacity:0.4">3</div>
                 <div class="level-line"></div>
                 <div class="level-dot l4" style="opacity:0.4">4</div>
-                <span style="font-size: 13px; color: #6b7280; margin-left: 12px;">Pilares Estratégicos &bull; Objetivos &bull; KRs</span>
+                <span style="font-size: 13px; color: #6b7280; margin-left: 12px;">Pilares Estratégicos &bull; Objetivos &bull; Resultados-Chave</span>
             </div>
 
             <div class="section">
-                <div class="section-title">🏆 Mapa Estratégico Certtus 5.0 — Pilares, Objetivos e KRs</div>
-                <p style="color: #6b7280; margin-bottom: 24px;">Cada pilar tem 1 objetivo estratégico e 1 KR principal. Clique em um pilar para ver suas iniciativas.</p>
+                <div class="section-title">🏆 Mapa Estratégico Certtus 5.0 — Pilares, Objetivos e Resultados-Chave</div>
+                <p style="color: #6b7280; margin-bottom: 24px;">Cada pilar tem 1 objetivo estratégico e 1 Resultado-Chave principal. Clique em um pilar para ver suas iniciativas.</p>
 
                 <div class="grid grid-cols-5" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));" id="pilares-grid"></div>
             </div>
 
             <!-- ALERTAS CRÍTICOS -->
             <div class="section">
-                <div class="section-title">🚨 KRs que Precisam de Atenção</div>
+                <div class="section-title">🚨 Resultados-Chave que Precisam de Atenção</div>
                 <div class="critical-item warning" onclick="drillToLevel2('organization')">
                     <strong>⚠️ [ORGANIZAÇÃO]</strong> Mapear processos críticos: <strong>45%</strong> (Meta: 100% até Q3)
                     <div style="font-size: 12px; color: #92400e; margin-top: 4px;">Risco de atraso | 2 iniciativas bloqueadas</div>
@@ -317,7 +317,7 @@
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                     <div class="form-group">
-                        <label>🔑 KR Relacionada *</label>
+                        <label>🔑 Resultado-Chave Relacionada *</label>
                         <select id="form-kr">
                             <option value="">Selecione a atividade primeiro...</option>
                         </select>
@@ -433,7 +433,7 @@
             const p = DATA[key];
             const krPct = Math.round((p.kr.current / p.kr.target) * 100);
             const krStatus = krPct >= 80 ? 'on-track' : krPct >= 50 ? 'at-risk' : 'not-started';
-            const statusLabel = krStatus === 'on-track' ? '✅ On Track' : '⚠️ At Risk';
+            const statusLabel = krStatus === 'on-track' ? '✅ No Caminho' : '⚠️ Em Risco';
 
             // Color mapping for background
             const colorMap = {
@@ -455,7 +455,7 @@
                         <div style="font-size: 14px; font-weight: 600; margin-top: 4px;">${p.objective}</div>
                     </div>
                     <div style="padding: 10px; background: ${colors.kr_bg}; border-radius: 6px; margin-bottom: 12px;">
-                        <div style="font-size: 11px; color: ${colors.kr_text}; font-weight: 600;">KR PRINCIPAL</div>
+                        <div style="font-size: 11px; color: ${colors.kr_text}; font-weight: 600;">RESULTADO-CHAVE PRINCIPAL</div>
                         <div style="font-size: 13px; margin-top: 4px;">${p.kr.name}</div>
                     </div>
                     <div class="progress-bar"><div class="progress-fill" style="width: ${krPct}%; background: ${p.color};"></div></div>
@@ -470,7 +470,7 @@
     }
 
     // ═══════════════════════════════════════════════════════════
-    // DATA MODEL — Certtus 5.0 Strategic Map
+    // DATA MODEL — Certtus 5.0 Mapa Estratégico
     // ═══════════════════════════════════════════════════════════
     const DATA = {
         governance: {
@@ -857,10 +857,10 @@
                     <div style="font-size: 16px; font-weight: 700; margin-top: 8px;">${p.objective}</div>
                 </div>
                 <div>
-                    <div style="font-size: 12px; color: #1e40af; font-weight: 600;">🔑 KEY RESULT</div>
+                    <div style="font-size: 12px; color: #1e40af; font-weight: 600;">🔑 RESULTADO-CHAVE</div>
                     <div style="font-size: 14px; margin-top: 8px;">${p.kr.name}</div>
                     <div class="progress-bar" style="margin-top: 8px;"><div class="progress-fill" style="width: ${krPct}%; background: ${p.color};"></div></div>
-                    <div style="font-size: 12px; color: #6b7280;">${p.kr.current} / ${p.kr.target} ${p.kr.unit} (${krPct}%) <span class="card-status status-${krStatus}" style="margin-left: 8px;">${krStatus === 'on-track' ? '✅ On Track' : '⚠️ At Risk'}</span></div>
+                    <div style="font-size: 12px; color: #6b7280;">${p.kr.current} / ${p.kr.target} ${p.kr.unit} (${krPct}%) <span class="card-status status-${krStatus}" style="margin-left: 8px;">${krStatus === 'on-track' ? '✅ No Caminho' : '⚠️ Em Risco'}</span></div>
                 </div>
             </div>
         `;
@@ -870,7 +870,7 @@
         container.innerHTML = '';
         p.initiatives.forEach((init, idx) => {
             const statusClass = init.status === 'on-track' ? 'status-on-track' : init.status === 'at-risk' ? 'status-at-risk' : 'status-not-started';
-            const statusLabel = init.status === 'on-track' ? '✅ On Track' : init.status === 'at-risk' ? '⚠️ At Risk' : '⏳ Not Started';
+            const statusLabel = init.status === 'on-track' ? '✅ No Caminho' : init.status === 'at-risk' ? '⚠️ Em Risco' : '⏳ Não Iniciada';
             const totalKPIs = init.activities.reduce((sum, a) => sum + a.kpis.length, 0);
             container.innerHTML += `
                 <div class="card" style="border-left: 4px solid #22c55e;" onclick="drillToLevel3(${idx})">
@@ -884,7 +884,7 @@
                         <span>${init.progress}% concluído</span>
                         <span>${init.activities.length} atividades | ${totalKPIs} KPIs</span>
                     </div>
-                    <div style="font-size: 12px; color: #3b82f6; margin-top: 12px; font-weight: 500;">Ver atividades-chave →</div>
+                    <div style="font-size: 12px; color: #3b82f6; margin-top: 12px; font-weight: 500;">Ver as atividades-chave →</div>
                 </div>
             `;
         });
@@ -893,7 +893,7 @@
     }
 
     // ═══════════════════════════════════════════════════════════
-    // LEVEL 3: Drill into Initiative → show Key Activities
+    // LEVEL 3: Drill into Initiative → show Atividades-Chave
     // ═══════════════════════════════════════════════════════════
     function drillToLevel3(initIdx) {
         currentInitiativeIdx = initIdx;
@@ -912,7 +912,7 @@
 
         // Initiative info
         const statusClass = init.status === 'on-track' ? 'status-on-track' : 'status-at-risk';
-        const statusLabel = init.status === 'on-track' ? '✅ On Track' : '⚠️ At Risk';
+        const statusLabel = init.status === 'on-track' ? '✅ No Caminho' : '⚠️ Em Risco';
         document.getElementById('level3-initiative-info').innerHTML = `
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
                 <div>
@@ -999,8 +999,8 @@
             const pct = Math.round((kpi.current / kpi.target) * 100);
             const color = kpi.status === 'on-track' ? '#10b981' : '#f59e0b';
             const statusBadge = kpi.status === 'on-track'
-                ? '<span class="badge badge-green">✅ On Track</span>'
-                : '<span class="badge badge-yellow">⚠️ At Risk</span>';
+                ? '<span class="badge badge-green">✅ No Caminho</span>'
+                : '<span class="badge badge-yellow">⚠️ Em Risco</span>';
             container.innerHTML += `
                 <div class="card" style="border-top: 3px solid ${color}; cursor: default;">
                     <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
@@ -1034,7 +1034,7 @@
         // KR box
         const krPct = Math.round((p.kr.current / p.kr.target) * 100);
         document.getElementById('level4-kr-box').innerHTML = `
-            <div style="font-size: 12px; color: #1e40af; font-weight: 600;">🔑 KR RELACIONADA (do pilar ${p.icon} ${p.name})</div>
+            <div style="font-size: 12px; color: #1e40af; font-weight: 600;">🔑 RESULTADO-CHAVE RELACIONADA (do pilar ${p.icon} ${p.name})</div>
             <div style="font-size: 16px; font-weight: 700; margin-top: 8px;">${p.kr.name}</div>
             <div class="progress-bar" style="margin-top: 12px;"><div class="progress-fill" style="width: ${krPct}%; background: ${p.color};"></div></div>
             <div style="display: flex; justify-content: space-between; font-size: 13px; color: #6b7280; margin-top: 4px;">
