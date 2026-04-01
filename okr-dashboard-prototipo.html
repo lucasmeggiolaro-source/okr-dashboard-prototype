@@ -782,47 +782,93 @@
         },
         growth: {
             icon: '📈', name: 'Crescimento', color: '#ec4899',
-            objective: 'Expandir Base de Clientes',
-            kr: { name: 'Aumentar carteira ativa de 600 para 720 clientes', current: 678, target: 720, unit: 'clientes' },
+            objective: 'Expandir a Carteira de Clientes e Recorrência',
+            kr: { name: 'Aumentar o faturamento em R$ 2 Milhões este ano', current: 8800000, target: 10800000, unit: 'R$' },
             initiatives: [
                 {
-                    name: 'Implementar CRM Comercial',
-                    status: 'on-track', progress: 85, owner: 'Dir. Comercial',
+                    name: 'Conquistar novos clientes',
+                    status: 'on-track', progress: 78, owner: 'Diretor Comercial',
                     activities: [
                         {
-                            name: 'Integração CRM com ERP',
-                            status: 'done', owner: 'TI', period: 'Q1 2026',
+                            name: 'Campanha de Prospecção e Qualificação de Leads',
+                            status: 'in-progress', owner: 'Gerente SDR', period: 'Q1-Q4 2026',
                             kpis: [
-                                { code: 'KPI-CRESC-001', name: 'Leads no CRM', current: 420, target: 500, unit: 'un', status: 'on-track' },
-                                { code: 'KPI-CRESC-002', name: 'Taxa Conversão Lead', current: 12, target: 15, unit: '%', status: 'at-risk' }
+                                { code: 'KPI-CRESC-001', name: 'Leads Qualificados', current: 520, target: 650, unit: 'un', status: 'on-track' },
+                                { code: 'KPI-CRESC-002', name: 'Taxa de Conversão Lead→Cliente', current: 18, target: 22, unit: '%', status: 'at-risk' }
+                            ]
+                        },
+                        {
+                            name: 'Parcerias Estratégicas para Aquisição',
+                            status: 'in-progress', owner: 'Business Development', period: 'Q2-Q3 2026',
+                            kpis: [
+                                { code: 'KPI-CRESC-003', name: 'Parcerias Ativas', current: 6, target: 12, unit: 'un', status: 'at-risk' },
+                                { code: 'KPI-CRESC-004', name: 'Clientes via Parcerias', current: 28, target: 60, unit: 'un', status: 'at-risk' }
                             ]
                         }
                     ]
                 },
                 {
-                    name: 'Programa de Indicação de Clientes',
-                    status: 'at-risk', progress: 45, owner: 'Marketing',
+                    name: 'Garantir a recorrência de venda',
+                    status: 'at-risk', progress: 65, owner: 'Diretor CSM',
                     activities: [
                         {
-                            name: 'Lançamento Campanha Member Get Member',
-                            status: 'in-progress', owner: 'Marketing', period: 'Q2 2026',
+                            name: 'Programa de Retenção e Upsell',
+                            status: 'in-progress', owner: 'CSM Sênior', period: 'Q1-Q4 2026',
                             kpis: [
-                                { code: 'KPI-CRESC-003', name: 'Indicações Recebidas', current: 35, target: 80, unit: 'un', status: 'at-risk' },
-                                { code: 'KPI-CRESC-004', name: 'Conversão Indicações', current: 28, target: 35, unit: '%', status: 'on-track' }
+                                { code: 'KPI-CRESC-005', name: 'Taxa de Retenção', current: 82, target: 92, unit: '%', status: 'at-risk' },
+                                { code: 'KPI-CRESC-006', name: 'Taxa de Upsell', current: 24, target: 35, unit: '%', status: 'at-risk' }
+                            ]
+                        },
+                        {
+                            name: 'Implementação de Programa de Fidelização',
+                            status: 'in-progress', owner: 'Gerente de Programa', period: 'Q2-Q3 2026',
+                            kpis: [
+                                { code: 'KPI-CRESC-007', name: 'Clientes no Programa', current: 120, target: 200, unit: 'un', status: 'on-track' },
+                                { code: 'KPI-CRESC-008', name: 'Receita Recorrente', current: 2400000, target: 3600000, unit: 'R$', status: 'at-risk' }
                             ]
                         }
                     ]
                 },
                 {
-                    name: 'Expansão Regional',
-                    status: 'on-track', progress: 60, owner: 'Dir. Comercial',
+                    name: 'Melhorar a eficiência das negociações de vendas',
+                    status: 'on-track', progress: 75, owner: 'Diretor de Vendas',
                     activities: [
                         {
-                            name: 'Abertura de 2 Novas Filiais',
-                            status: 'in-progress', owner: 'Expansão', period: 'Q2-Q4 2026',
+                            name: 'Otimização do Funil de Vendas',
+                            status: 'done', owner: 'Analista de Vendas', period: 'Q1 2026',
                             kpis: [
-                                { code: 'KPI-CRESC-005', name: 'Filiais Abertas', current: 1, target: 2, unit: 'un', status: 'on-track' },
-                                { code: 'KPI-CRESC-006', name: 'Clientes Novos/Mês', current: 12, target: 18, unit: 'un', status: 'at-risk' }
+                                { code: 'KPI-CRESC-009', name: 'Ciclo de Venda Médio', current: 45, target: 30, unit: 'dias', status: 'at-risk' },
+                                { code: 'KPI-CRESC-010', name: 'Taxa de Fechamento', current: 28, target: 35, unit: '%', status: 'at-risk' }
+                            ]
+                        },
+                        {
+                            name: 'Treinamento de Técnicas de Negociação',
+                            status: 'in-progress', owner: 'Sales Coach', period: 'Q2 2026',
+                            kpis: [
+                                { code: 'KPI-CRESC-011', name: 'Vendedores Treinados', current: 12, target: 16, unit: 'un', status: 'on-track' },
+                                { code: 'KPI-CRESC-012', name: 'Ticket Médio Aumentado', current: 18500, target: 22000, unit: 'R$', status: 'at-risk' }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: 'Estar presente em todos os canais de venda',
+                    status: 'at-risk', progress: 55, owner: 'Diretor de Marketing',
+                    activities: [
+                        {
+                            name: 'Implementação de E-commerce e Marketplace',
+                            status: 'in-progress', owner: 'Gerente Digital', period: 'Q2-Q3 2026',
+                            kpis: [
+                                { code: 'KPI-CRESC-013', name: 'Canais de Vendas Ativos', current: 3, target: 5, unit: 'un', status: 'at-risk' },
+                                { code: 'KPI-CRESC-014', name: 'Receita Online', current: 1200000, target: 2200000, unit: 'R$', status: 'at-risk' }
+                            ]
+                        },
+                        {
+                            name: 'Integração Omnichannel de Experiência',
+                            status: 'in-progress', owner: 'Especialista Digital', period: 'Q3-Q4 2026',
+                            kpis: [
+                                { code: 'KPI-CRESC-015', name: 'Cobertura Omnichannel', current: 65, target: 90, unit: '%', status: 'at-risk' },
+                                { code: 'KPI-CRESC-016', name: 'Consistência de Preço', current: 88, target: 98, unit: '%', status: 'on-track' }
                             ]
                         }
                     ]
