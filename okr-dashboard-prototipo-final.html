@@ -592,46 +592,93 @@
         },
         organization: {
             icon: '📋', name: 'Organização', color: '#06b6d4',
-            objective: 'Padronizar Processos Operacionais',
-            kr: { name: 'Mapear 100% dos processos críticos até Q3', current: 45, target: 100, unit: '%' },
+            objective: 'Melhorar a Gestão Interna e Relacionamento com Fornecedores e Clientes',
+            kr: { name: 'Manter o nível de satisfação dos clientes acima de 90%', current: 87, target: 90, unit: '%' },
             initiatives: [
                 {
-                    name: 'Mapeamento de Processos AS-IS',
-                    status: 'at-risk', progress: 35, owner: 'Processos',
+                    name: 'Garantir que atividades-chave sigam o fluxo correto de trabalho',
+                    status: 'on-track', progress: 75, owner: 'Diretor de Operações',
                     activities: [
                         {
-                            name: 'Levantamento com Stakeholders',
-                            status: 'in-progress', owner: 'Analista Processos', period: 'Q1-Q2 2026',
+                            name: 'Mapeamento e Documentação dos Fluxos de Trabalho',
+                            status: 'in-progress', owner: 'Analista de Processos', period: 'Q1-Q2 2026',
                             kpis: [
-                                { code: 'KPI-ORG-001', name: 'Processos Documentados', current: 12, target: 35, unit: 'un', status: 'at-risk' },
-                                { code: 'KPI-ORG-002', name: 'Áreas Cobertas', current: 3, target: 8, unit: 'un', status: 'at-risk' }
+                                { code: 'KPI-ORG-001', name: 'Fluxos Documentados', current: 15, target: 20, unit: 'un', status: 'on-track' },
+                                { code: 'KPI-ORG-002', name: 'Taxa de Aderência aos Fluxos', current: 83, target: 95, unit: '%', status: 'at-risk' }
+                            ]
+                        },
+                        {
+                            name: 'Treinamento de Equipes nos Fluxos',
+                            status: 'in-progress', owner: 'RH', period: 'Q2 2026',
+                            kpis: [
+                                { code: 'KPI-ORG-003', name: 'Pessoas Treinadas', current: 18, target: 25, unit: 'un', status: 'on-track' },
+                                { code: 'KPI-ORG-004', name: 'Taxa de Compreensão', current: 85, target: 95, unit: '%', status: 'at-risk' }
                             ]
                         }
                     ]
                 },
                 {
-                    name: 'Implementar BPM (Gestão por Processos)',
-                    status: 'not-started', progress: 10, owner: 'TI + Processos',
+                    name: 'Categorizar e acompanhar individualmente KPIs de atividades-chave',
+                    status: 'on-track', progress: 68, owner: 'Gestor de Indicadores',
                     activities: [
                         {
-                            name: 'Seleção de Ferramenta BPM',
-                            status: 'not-started', owner: 'TI', period: 'Q2 2026',
+                            name: 'Estruturação do Dashboard de KPIs',
+                            status: 'done', owner: 'Analista BI', period: 'Q1 2026',
                             kpis: [
-                                { code: 'KPI-ORG-003', name: 'Ferramentas Avaliadas', current: 2, target: 5, unit: 'un', status: 'on-track' }
+                                { code: 'KPI-ORG-005', name: 'KPIs Categorizados', current: 42, target: 50, unit: 'un', status: 'on-track' },
+                                { code: 'KPI-ORG-006', name: 'Cobertura de Atividades', current: 88, target: 100, unit: '%', status: 'on-track' }
+                            ]
+                        },
+                        {
+                            name: 'Configuração de Alertas e Relatórios Automáticos',
+                            status: 'in-progress', owner: 'TI', period: 'Q2 2026',
+                            kpis: [
+                                { code: 'KPI-ORG-007', name: 'Alertas Configurados', current: 28, target: 42, unit: 'un', status: 'on-track' },
+                                { code: 'KPI-ORG-008', name: 'Relatórios Gerados com Sucesso', current: 92, target: 100, unit: '%', status: 'on-track' }
                             ]
                         }
                     ]
                 },
                 {
-                    name: 'Padronizar SOPs (Procedimentos)',
-                    status: 'on-track', progress: 55, owner: 'Qualidade',
+                    name: 'Acompanhar o relacionamento com fornecedores para garantir prazos e qualidade',
+                    status: 'at-risk', progress: 55, owner: 'Diretor de Compras',
                     activities: [
                         {
-                            name: 'Criação de Templates de SOP',
-                            status: 'done', owner: 'Qualidade', period: 'Q1 2026',
+                            name: 'Estruturação de Critérios de Avaliação de Fornecedores',
+                            status: 'done', owner: 'Analista Compras', period: 'Q1 2026',
                             kpis: [
-                                { code: 'KPI-ORG-004', name: 'SOPs Publicados', current: 18, target: 30, unit: 'un', status: 'on-track' },
-                                { code: 'KPI-ORG-005', name: 'Aderência aos SOPs', current: 72, target: 90, unit: '%', status: 'at-risk' }
+                                { code: 'KPI-ORG-009', name: 'Fornecedores Mapeados', current: 18, target: 20, unit: 'un', status: 'on-track' },
+                                { code: 'KPI-ORG-010', name: 'Critérios Definidos', current: 100, target: 100, unit: '%', status: 'on-track' }
+                            ]
+                        },
+                        {
+                            name: 'Implementação de Sistema de Scorecards de Fornecedores',
+                            status: 'in-progress', owner: 'TI + Compras', period: 'Q2-Q3 2026',
+                            kpis: [
+                                { code: 'KPI-ORG-011', name: 'Score Médio de Fornecedores', current: 78, target: 85, unit: 'score', status: 'at-risk' },
+                                { code: 'KPI-ORG-012', name: 'Fornecedores com Score Positivo', current: 72, target: 90, unit: '%', status: 'at-risk' }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: 'Melhorar a experiência, transparência e comunicação com os clientes',
+                    status: 'on-track', progress: 80, owner: 'Diretor de Sucesso do Cliente',
+                    activities: [
+                        {
+                            name: 'Implementação de Portal do Cliente com Transparência',
+                            status: 'in-progress', owner: 'Produto Digital', period: 'Q2 2026',
+                            kpis: [
+                                { code: 'KPI-ORG-013', name: 'Portal Acessado por Clientes', current: 65, target: 85, unit: '%', status: 'at-risk' },
+                                { code: 'KPI-ORG-014', name: 'Taxa de Satisfação com Portal', current: 82, target: 90, unit: '%', status: 'at-risk' }
+                            ]
+                        },
+                        {
+                            name: 'Programa de Comunicação Proativa (NPS)',
+                            status: 'in-progress', owner: 'CSM', period: 'Q1-Q4 2026',
+                            kpis: [
+                                { code: 'KPI-ORG-015', name: 'NPS (Net Promoter Score)', current: 52, target: 70, unit: 'score', status: 'at-risk' },
+                                { code: 'KPI-ORG-016', name: 'CSAT (Satisfação do Cliente)', current: 87, target: 95, unit: '%', status: 'at-risk' }
                             ]
                         }
                     ]
