@@ -877,55 +877,115 @@
         },
         profitability: {
             icon: '💰', name: 'Rentabilidade', color: '#10b981',
-            objective: 'Aumentar Margem Bruta',
-            kr: { name: 'Elevar margem bruta de 35% para 45%', current: 42, target: 45, unit: '%' },
+            objective: 'Aumentar a Margem de Lucro e Saúde Financeira',
+            kr: { name: 'Manter Margem de Lucro Líquido acima de 25% ao mês', current: 22, target: 25, unit: '%' },
             initiatives: [
                 {
-                    name: 'Otimizar Custos de Compras',
-                    status: 'on-track', progress: 78, owner: 'Gerente Compras',
+                    name: 'Reduzir custos operacionais, sem comprometer a qualidade',
+                    status: 'on-track', progress: 74, owner: 'Diretor Financeiro',
                     activities: [
                         {
-                            name: 'Renegociação com Top 10 Fornecedores',
-                            status: 'in-progress', owner: 'Comprador Sênior', period: 'Q1-Q2 2026',
+                            name: 'Auditoria e Benchmarking de Custos',
+                            status: 'done', owner: 'Consultor Externo', period: 'Q1 2026',
                             kpis: [
-                                { code: 'KPI-RENT-001', name: 'Saving em Compras', current: 380, target: 500, unit: 'R$ mil', status: 'on-track' },
-                                { code: 'KPI-RENT-002', name: 'Custo Aquisição Médio', current: -3.2, target: -5, unit: '%', status: 'at-risk' }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    name: 'Reduzir Obsolescência de Estoque',
-                    status: 'at-risk', progress: 50, owner: 'Gerente Estoque',
-                    activities: [
-                        {
-                            name: 'Inventário Rotativo Semanal',
-                            status: 'in-progress', owner: 'Estoquista Líder', period: 'Q1-Q4 2026',
-                            kpis: [
-                                { code: 'KPI-RENT-003', name: 'Taxa Obsolescência', current: 12.3, target: 8, unit: '%', status: 'at-risk' },
-                                { code: 'KPI-RENT-004', name: 'Giro de Estoque', current: 4.1, target: 5.5, unit: 'x', status: 'at-risk' }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    name: 'Aumentar Margem nos Serviços',
-                    status: 'on-track', progress: 72, owner: 'Dir. Operações',
-                    activities: [
-                        {
-                            name: 'Revisão de Tabela de Preços',
-                            status: 'done', owner: 'Financeiro', period: 'Q1 2026',
-                            kpis: [
-                                { code: 'KPI-RENT-005', name: 'Margem Serviço', current: 41, target: 45, unit: '%', status: 'on-track' },
-                                { code: 'KPI-RENT-006', name: 'Faturamento Médio/OS', current: 2350, target: 2500, unit: 'R$', status: 'on-track' }
+                                { code: 'KPI-RENT-001', name: 'Oportunidades de Redução Identificadas', current: 28, target: 35, unit: 'un', status: 'on-track' },
+                                { code: 'KPI-RENT-002', name: 'Potencial de Economia Anual', current: 450, target: 600, unit: 'R$ mil', status: 'on-track' }
                             ]
                         },
                         {
-                            name: 'Programa de Upsell',
-                            status: 'in-progress', owner: 'Vendas', period: 'Q2-Q3 2026',
+                            name: 'Implementação de Melhorias de Custo',
+                            status: 'in-progress', owner: 'Gestor de Melhorias', period: 'Q2-Q4 2026',
                             kpis: [
-                                { code: 'KPI-RENT-007', name: 'Taxa Upsell', current: 15, target: 25, unit: '%', status: 'at-risk' },
-                                { code: 'KPI-RENT-008', name: 'Receita Adicional/Mês', current: 85, target: 120, unit: 'R$ mil', status: 'at-risk' }
+                                { code: 'KPI-RENT-003', name: 'Melhorias Implementadas', current: 12, target: 28, unit: 'un', status: 'at-risk' },
+                                { code: 'KPI-RENT-004', name: 'Economia Realizada', current: 185, target: 450, unit: 'R$ mil', status: 'at-risk' }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: 'Aumentar o Ticket Médio nos canais de venda',
+                    status: 'at-risk', progress: 62, owner: 'Diretor de Vendas',
+                    activities: [
+                        {
+                            name: 'Estratégia de Precificação e Upsell',
+                            status: 'in-progress', owner: 'Gerente Comercial', period: 'Q2-Q3 2026',
+                            kpis: [
+                                { code: 'KPI-RENT-005', name: 'Ticket Médio Atual', current: 3200, target: 3800, unit: 'R$', status: 'at-risk' },
+                                { code: 'KPI-RENT-006', name: 'Taxa de Upsell', current: 22, target: 35, unit: '%', status: 'at-risk' }
+                            ]
+                        },
+                        {
+                            name: 'Pacotes Premium e Cross-sell',
+                            status: 'in-progress', owner: 'Product Manager', period: 'Q3-Q4 2026',
+                            kpis: [
+                                { code: 'KPI-RENT-007', name: 'Pacotes Premium Vendidos', current: 18, target: 40, unit: 'un/mês', status: 'at-risk' },
+                                { code: 'KPI-RENT-008', name: 'Receita Premium', current: 185, target: 320, unit: 'R$ mil/mês', status: 'at-risk' }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: 'Manter Índice de Cobertura de Pagamento positivo sem empréstimos',
+                    status: 'on-track', progress: 80, owner: 'Gerente de Tesouraria',
+                    activities: [
+                        {
+                            name: 'Gestão de Fluxo de Caixa e Contas a Receber',
+                            status: 'in-progress', owner: 'Analista de Crédito', period: 'Q1-Q4 2026',
+                            kpis: [
+                                { code: 'KPI-RENT-009', name: 'Índice de Cobertura', current: 2.8, target: 3.5, unit: 'vezes', status: 'on-track' },
+                                { code: 'KPI-RENT-010', name: 'Taxa de Inadimplência', current: 2.1, target: 1.0, unit: '%', status: 'at-risk' }
+                            ]
+                        },
+                        {
+                            name: 'Otimização de Capital de Giro',
+                            status: 'in-progress', owner: 'Controlador', period: 'Q2-Q4 2026',
+                            kpis: [
+                                { code: 'KPI-RENT-011', name: 'Ciclo Operacional', current: 52, target: 35, unit: 'dias', status: 'at-risk' },
+                                { code: 'KPI-RENT-012', name: 'Endividamento (Dívida/Patrimônio)', current: 0.45, target: 0.25, unit: 'vezes', status: 'on-track' }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: 'Manter Cobertura de Estoque Ideal sem comprometer capital de giro',
+                    status: 'at-risk', progress: 58, owner: 'Gerente de Estoque',
+                    activities: [
+                        {
+                            name: 'Ajuste de Volumes de Estoque',
+                            status: 'in-progress', owner: 'Planejador de Demanda', period: 'Q1-Q4 2026',
+                            kpis: [
+                                { code: 'KPI-RENT-013', name: 'Giro de Estoque', current: 4.2, target: 5.8, unit: 'vezes/ano', status: 'at-risk' },
+                                { code: 'KPI-RENT-014', name: 'Taxa de Obsolescência', current: 11.5, target: 5.0, unit: '%', status: 'at-risk' }
+                            ]
+                        },
+                        {
+                            name: 'Sistema de Previsão de Demanda',
+                            status: 'in-progress', owner: 'Analista BI', period: 'Q2-Q3 2026',
+                            kpis: [
+                                { code: 'KPI-RENT-015', name: 'Acurácia de Previsão', current: 72, target: 85, unit: '%', status: 'at-risk' },
+                                { code: 'KPI-RENT-016', name: 'Capital Imobilizado em Estoque', current: 850, target: 600, unit: 'R$ mil', status: 'at-risk' }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: 'Estabelecer políticas de preços competitivas que garantam margem',
+                    status: 'on-track', progress: 76, owner: 'Gerente de Pricing',
+                    activities: [
+                        {
+                            name: 'Análise Competitiva de Preços',
+                            status: 'done', owner: 'Analista de Preços', period: 'Q1 2026',
+                            kpis: [
+                                { code: 'KPI-RENT-017', name: 'Produtos Analisados', current: 48, target: 60, unit: 'un', status: 'on-track' },
+                                { code: 'KPI-RENT-018', name: 'Posicionamento Competitivo', current: 85, target: 95, unit: '%', status: 'on-track' }
+                            ]
+                        },
+                        {
+                            name: 'Simulação e Teste de Cenários de Preço',
+                            status: 'in-progress', owner: 'Estrategista de Precificação', period: 'Q2-Q4 2026',
+                            kpis: [
+                                { code: 'KPI-RENT-019', name: 'Margem Média de Lucro', current: 22, target: 25, unit: '%', status: 'at-risk' },
+                                { code: 'KPI-RENT-020', name: 'Elasticidade Preço Testada', current: 8, target: 15, unit: 'cenários', status: 'on-track' }
                             ]
                         }
                     ]
