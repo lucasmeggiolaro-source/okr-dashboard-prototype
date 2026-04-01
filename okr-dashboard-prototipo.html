@@ -703,10 +703,11 @@
                         },
                         {
                             name: 'Implementação de Sistema de Scorecards de Fornecedores',
-                            status: 'in-progress', owner: 'TI + Compras', period: 'Q2-Q3 2026',
+                            status: 'at-risk', owner: 'TI + Compras', period: 'Q2-Q3 2026',
                             kpis: [
-                                { code: 'KPI-ORG-011', name: 'Score Médio de Fornecedores', current: 78, target: 85, unit: 'score', status: 'at-risk' },
-                                { code: 'KPI-ORG-012', name: 'Fornecedores com Score Positivo', current: 72, target: 90, unit: '%', status: 'at-risk' }
+                                { code: 'KPI-ORG-011', name: 'Score Médio de Fornecedores', current: 68, target: 85, unit: 'score', status: 'at-risk' },
+                                { code: 'KPI-ORG-012', name: 'Fornecedores com Score Positivo', current: 58, target: 90, unit: '%', status: 'at-risk' },
+                                { code: 'KPI-ORG-012B', name: 'Atraso Médio de Entrega', current: 8.2, target: 3.0, unit: 'dias', status: 'at-risk' }
                             ]
                         }
                     ]
@@ -798,10 +799,11 @@
                         },
                         {
                             name: 'Implementação de Melhorias de Tempo',
-                            status: 'in-progress', owner: 'Gestor de Melhorias', period: 'Q2-Q4 2026',
+                            status: 'at-risk', owner: 'Gestor de Melhorias', period: 'Q2-Q4 2026',
                             kpis: [
-                                { code: 'KPI-PROD-011', name: 'Melhorias Implementadas', current: 8, target: 18, unit: 'un', status: 'at-risk' },
-                                { code: 'KPI-PROD-012', name: 'Redução de Tempo Alcançada', current: 15, target: 25, unit: '%', status: 'at-risk' }
+                                { code: 'KPI-PROD-011', name: 'Melhorias Implementadas', current: 5, target: 18, unit: 'un', status: 'at-risk' },
+                                { code: 'KPI-PROD-012', name: 'Redução de Tempo Alcançada', current: 8, target: 25, unit: '%', status: 'at-risk' },
+                                { code: 'KPI-PROD-012B', name: 'Tempo de Ciclo Reduzido', current: 225, target: 150, unit: 'min', status: 'at-risk' }
                             ]
                         }
                     ]
@@ -863,18 +865,20 @@
                     activities: [
                         {
                             name: 'Programa de Retenção e Upsell',
-                            status: 'in-progress', owner: 'CSM Sênior', period: 'Q1-Q4 2026',
+                            status: 'at-risk', owner: 'CSM Sênior', period: 'Q1-Q4 2026',
                             kpis: [
-                                { code: 'KPI-CRESC-005', name: 'Taxa de Retenção', current: 82, target: 92, unit: '%', status: 'at-risk' },
-                                { code: 'KPI-CRESC-006', name: 'Taxa de Upsell', current: 24, target: 35, unit: '%', status: 'at-risk' }
+                                { code: 'KPI-CRESC-005', name: 'Taxa de Retenção', current: 75, target: 92, unit: '%', status: 'at-risk' },
+                                { code: 'KPI-CRESC-006', name: 'Taxa de Upsell', current: 18, target: 35, unit: '%', status: 'at-risk' },
+                                { code: 'KPI-CRESC-005B', name: 'Churn de Clientes', current: 12.5, target: 5.0, unit: '%', status: 'at-risk' }
                             ]
                         },
                         {
                             name: 'Implementação de Programa de Fidelização',
-                            status: 'in-progress', owner: 'Gerente de Programa', period: 'Q2-Q3 2026',
+                            status: 'not-started', owner: 'Gerente de Programa', period: 'Q2-Q3 2026',
                             kpis: [
-                                { code: 'KPI-CRESC-007', name: 'Clientes no Programa', current: 120, target: 200, unit: 'un', status: 'on-track' },
-                                { code: 'KPI-CRESC-008', name: 'Receita Recorrente', current: 2400000, target: 3600000, unit: 'R$', status: 'at-risk' }
+                                { code: 'KPI-CRESC-007', name: 'Clientes no Programa', current: 0, target: 200, unit: 'un', status: 'at-risk' },
+                                { code: 'KPI-CRESC-008', name: 'Receita Recorrente', current: 1800000, target: 3600000, unit: 'R$', status: 'at-risk' },
+                                { code: 'KPI-CRESC-008B', name: 'Programa em Operação', current: 0, target: 100, unit: '%', status: 'at-risk' }
                             ]
                         }
                     ]
@@ -958,18 +962,20 @@
                     activities: [
                         {
                             name: 'Estratégia de Precificação e Upsell',
-                            status: 'in-progress', owner: 'Gerente Comercial', period: 'Q2-Q3 2026',
+                            status: 'at-risk', owner: 'Gerente Comercial', period: 'Q2-Q3 2026',
                             kpis: [
-                                { code: 'KPI-RENT-005', name: 'Ticket Médio Atual', current: 3200, target: 3800, unit: 'R$', status: 'at-risk' },
-                                { code: 'KPI-RENT-006', name: 'Taxa de Upsell', current: 22, target: 35, unit: '%', status: 'at-risk' }
+                                { code: 'KPI-RENT-005', name: 'Ticket Médio Atual', current: 3000, target: 3800, unit: 'R$', status: 'at-risk' },
+                                { code: 'KPI-RENT-006', name: 'Taxa de Upsell', current: 15, target: 35, unit: '%', status: 'at-risk' },
+                                { code: 'KPI-RENT-005B', name: 'Variação vs Mês Anterior', current: -8, target: 5, unit: '%', status: 'at-risk' }
                             ]
                         },
                         {
                             name: 'Pacotes Premium e Cross-sell',
-                            status: 'in-progress', owner: 'Product Manager', period: 'Q3-Q4 2026',
+                            status: 'not-started', owner: 'Product Manager', period: 'Q3-Q4 2026',
                             kpis: [
-                                { code: 'KPI-RENT-007', name: 'Pacotes Premium Vendidos', current: 18, target: 40, unit: 'un/mês', status: 'at-risk' },
-                                { code: 'KPI-RENT-008', name: 'Receita Premium', current: 185, target: 320, unit: 'R$ mil/mês', status: 'at-risk' }
+                                { code: 'KPI-RENT-007', name: 'Pacotes Premium Vendidos', current: 0, target: 40, unit: 'un/mês', status: 'at-risk' },
+                                { code: 'KPI-RENT-008', name: 'Receita Premium', current: 0, target: 320, unit: 'R$ mil/mês', status: 'at-risk' },
+                                { code: 'KPI-RENT-008B', name: 'Estrutura Pronta', current: 0, target: 100, unit: '%', status: 'at-risk' }
                             ]
                         }
                     ]
