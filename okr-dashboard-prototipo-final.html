@@ -687,63 +687,93 @@
         },
         productivity: {
             icon: '⚡', name: 'Produtividade', color: '#f59e0b',
-            objective: 'Aumentar Eficiência Operacional',
-            kr: { name: 'Aumentar OS por Técnico de 4.2 para 5.5/dia', current: 5.0, target: 5.5, unit: 'OS/dia' },
+            objective: 'Maximizar a Eficiência Operacional',
+            kr: { name: 'Manter faturamento por colaborador acima de R$ 15.000,00', current: 14200, target: 15000, unit: 'R$' },
             initiatives: [
                 {
-                    name: 'Melhorar Agendamento de Serviços',
-                    status: 'on-track', progress: 80, owner: 'Coord. Agendamento',
+                    name: 'Definir e monitorar metas individuais de produtividade',
+                    status: 'on-track', progress: 82, owner: 'Gerente de RH',
                     activities: [
                         {
-                            name: 'Redesenho de Rotas de Atendimento',
-                            status: 'done', owner: 'João Silva', period: 'Q1 2026',
+                            name: 'Estruturação de Metas por Função',
+                            status: 'done', owner: 'Analista de Desempenho', period: 'Q1 2026',
                             kpis: [
-                                { code: 'KPI-PROD-001', name: 'Taxa Ocupação Técnico', current: 84, target: 85, unit: '%', status: 'on-track' },
-                                { code: 'KPI-PROD-002', name: 'Km Percorrido/OS', current: 18, target: 15, unit: 'km', status: 'at-risk' }
+                                { code: 'KPI-PROD-001', name: 'Funções com Metas Definidas', current: 22, target: 25, unit: 'un', status: 'on-track' },
+                                { code: 'KPI-PROD-002', name: 'Cobertura de Colaboradores', current: 94, target: 100, unit: '%', status: 'on-track' }
                             ]
                         },
                         {
-                            name: 'Plataforma de Agendamento Online',
-                            status: 'in-progress', owner: 'Maria Santos', period: 'Q1-Q2 2026',
+                            name: 'Implementação de Sistema de Acompanhamento Mensal',
+                            status: 'in-progress', owner: 'TI', period: 'Q2 2026',
                             kpis: [
-                                { code: 'KPI-PROD-003', name: 'Agendamentos Online', current: 42, target: 60, unit: '%', status: 'at-risk' },
-                                { code: 'KPI-PROD-004', name: 'Tempo Médio Agendamento', current: 8, target: 5, unit: 'min', status: 'at-risk' }
+                                { code: 'KPI-PROD-003', name: 'Relatórios Gerados', current: 24, target: 25, unit: 'un', status: 'on-track' },
+                                { code: 'KPI-PROD-004', name: 'Taxa de Cumprimento de Metas', current: 78, target: 90, unit: '%', status: 'at-risk' }
                             ]
                         }
                     ]
                 },
                 {
-                    name: 'Aumentar Produtividade dos Técnicos',
-                    status: 'on-track', progress: 90, owner: 'Gerente Ops',
+                    name: 'Garantir a eficiência em atividades-chave',
+                    status: 'on-track', progress: 76, owner: 'Diretor de Operações',
                     activities: [
                         {
-                            name: 'Programa de Capacitação Técnica',
-                            status: 'in-progress', owner: 'Pedro Costa', period: 'Q2 2026',
+                            name: 'Otimização de Processos Críticos',
+                            status: 'in-progress', owner: 'Analista de Processos', period: 'Q1-Q3 2026',
                             kpis: [
-                                { code: 'KPI-PROD-005', name: 'Técnicos Certificados', current: 18, target: 22, unit: 'un', status: 'on-track' },
-                                { code: 'KPI-PROD-006', name: 'Ticket Médio', current: 2300, target: 2500, unit: 'R$', status: 'on-track' }
+                                { code: 'KPI-PROD-005', name: 'Processos Otimizados', current: 12, target: 15, unit: 'un', status: 'on-track' },
+                                { code: 'KPI-PROD-006', name: 'Redução de Tempo Médio', current: 18, target: 25, unit: '%', status: 'on-track' }
                             ]
                         },
                         {
-                            name: 'Automação de Checklist de OS',
-                            status: 'in-progress', owner: 'Ana Paula', period: 'Q1-Q3 2026',
+                            name: 'Implementação de Ferramentas de Automação',
+                            status: 'in-progress', owner: 'TI', period: 'Q2-Q3 2026',
                             kpis: [
-                                { code: 'KPI-PROD-007', name: 'OS com Checklist Digital', current: 78, target: 95, unit: '%', status: 'on-track' },
-                                { code: 'KPI-PROD-008', name: 'Tempo Preenchimento', current: 5, target: 3, unit: 'min', status: 'at-risk' }
+                                { code: 'KPI-PROD-007', name: 'Tarefas Automatizadas', current: 8, target: 12, unit: 'un', status: 'on-track' },
+                                { code: 'KPI-PROD-008', name: 'Tempo Economizado/Semana', current: 35, target: 50, unit: 'horas', status: 'at-risk' }
                             ]
                         }
                     ]
                 },
                 {
-                    name: 'Reduzir Fila de Espera',
-                    status: 'on-track', progress: 70, owner: 'Coord. Agendamento',
+                    name: 'Reduzir o tempo médio de execução das fases de trabalho',
+                    status: 'at-risk', progress: 62, owner: 'Coordenador de Operações',
                     activities: [
                         {
-                            name: 'Balanceamento de Carga por Região',
-                            status: 'in-progress', owner: 'Operações', period: 'Q2-Q3 2026',
+                            name: 'Mapeamento de Tempos e Gargalos',
+                            status: 'done', owner: 'Engenheiro de Processos', period: 'Q1 2026',
                             kpis: [
-                                { code: 'KPI-PROD-009', name: 'Faturamento/Hora', current: 152, target: 165, unit: 'R$', status: 'at-risk' },
-                                { code: 'KPI-PROD-010', name: 'Tempo Resposta', current: 28, target: 30, unit: 'min', status: 'on-track' }
+                                { code: 'KPI-PROD-009', name: 'Gargalos Identificados', current: 18, target: 20, unit: 'un', status: 'on-track' },
+                                { code: 'KPI-PROD-010', name: 'Tempo Médio Atual', current: 240, target: 180, unit: 'min', status: 'at-risk' }
+                            ]
+                        },
+                        {
+                            name: 'Implementação de Melhorias de Tempo',
+                            status: 'in-progress', owner: 'Gestor de Melhorias', period: 'Q2-Q4 2026',
+                            kpis: [
+                                { code: 'KPI-PROD-011', name: 'Melhorias Implementadas', current: 8, target: 18, unit: 'un', status: 'at-risk' },
+                                { code: 'KPI-PROD-012', name: 'Redução de Tempo Alcançada', current: 15, target: 25, unit: '%', status: 'at-risk' }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: 'Garantir entregas dentro do prazo acordado com o cliente',
+                    status: 'on-track', progress: 88, owner: 'Gerente de Projetos',
+                    activities: [
+                        {
+                            name: 'Implementação de Sistema de Controle de Prazos',
+                            status: 'done', owner: 'Analista de Projetos', period: 'Q1 2026',
+                            kpis: [
+                                { code: 'KPI-PROD-013', name: 'Projetos no Sistema', current: 45, target: 50, unit: 'un', status: 'on-track' },
+                                { code: 'KPI-PROD-014', name: 'Acurácia de Prazos', current: 92, target: 98, unit: '%', status: 'on-track' }
+                            ]
+                        },
+                        {
+                            name: 'Programa de Cumprimento de Deadlines',
+                            status: 'in-progress', owner: 'CSM', period: 'Q1-Q4 2026',
+                            kpis: [
+                                { code: 'KPI-PROD-015', name: 'Taxa de Entrega no Prazo', current: 88, target: 95, unit: '%', status: 'at-risk' },
+                                { code: 'KPI-PROD-016', name: 'Atraso Médio (Dias)', current: 2.1, target: 0.5, unit: 'dias', status: 'at-risk' }
                             ]
                         }
                     ]
